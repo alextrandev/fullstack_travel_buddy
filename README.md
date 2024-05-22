@@ -40,8 +40,21 @@ Libraries and frameworks:
 6. Install backend dependencies: ```composer i```
 7. Host the backend in local server: ```symfony serve```
 
-Frontend should run on local port: ```http://localhost:5173```
-Backend should run on local port: ```https://127.0.0.1:8000```
+Frontend should run on local port: ```http://localhost:5173```. _If not, check the console for the right port_
+Backend should run on local port: ```https://127.0.0.1:8000``` _If not then check the console for the right port_
+
+**Before working on a feature**
+1. Remember to pull the changes from main branch ```git pull origin main```
+2. Create a new branch with your name and the feature ```git checkout -b Branch-Name```
+Branch name should be: ```PurposeOfTheBranch/NameOfTheBacklogItem-some-description```
+Example:
+- Working on a new feature FE-003 ```git checkout -b feature/FE-003-nav-bar```
+- Fix a bug BF-011: ```git checkout -b bugfix/BF-011-nav-bar-have-too-much-padding```
+3. Finish the coding and commit the changes
+4. Push to online repo ```git push origin Branch-Name``` use the same branch name here. **Never push to main or any other branches**
+5. Go to the github repo
+6. Find the Create Pull Request button, add a reviewer and create the request.
+7. Wait for the request to be accepted. In the meantime, you can create a new branch and work on something else.
 
 ## Screenshot
 **Homepage**
