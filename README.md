@@ -17,7 +17,9 @@ Languages:
 Libraries and frameworks:
 
 - Symfony7
+- Nelmio Cors Bundle
 - React Vite
+- Axios
 
 <!-- ## Setup and usage
 
@@ -33,7 +35,7 @@ Libraries and frameworks:
 
 **To setup local development environment**
 1. Clone the project: ``` git clone https://github.com/alextrandev/fullstack_travel_buddy.git```
-2. Change to frontend firectory: ```cd fullstack_travel_buddy/frontend```
+2. Change to frontend directory: ```cd fullstack_travel_buddy/frontend```
 3. Install frontend dependencies: ```npm i```
 4. Host the frontend in local server: ```npm run dev```
 5. Open a new terminal, cd to backend folder.
@@ -56,6 +58,15 @@ Example:
 6. Find the Create Pull Request button, add a reviewer and create the request.
 7. Wait for the request to be accepted. In the meantime, you can create a new branch and work on something else.
 
+**Testing the pull request  before merging**
+
+1. Fetch changes `git fetch origin`
+2. Checkout the branch `git checkout -b branch-name origin/branch-name`
+3. Reinstall dependencies in both frontend and backend `npm i` and `composer i`
+4. Host both front and backend if haven't
+5. Test the changes
+6. If everything is ok, go to github and merge the request
+
 ## Screenshot
 **Homepage**
 ![homepage screenshot](./...)
@@ -66,4 +77,12 @@ Example:
 
 ## Authors and acknowledgment
 
-- [...](https://#)
+**Mentor and Client**
+- [Margit Tennosaar](https://github.com/margittennosaar)
+- [Santosh Kalwar](https://github.com/kalwar)
+
+**Dev team**
+- [Alex Tran](https://github.com/alextrandev) - Fullstack developer
+- [Arina Belugina](https://github.com/Nanao907) - Fullstack developer
+- [Sheila Onyango](https://github.com/SheilaOnyango) - Fullstack developer
+- [MD ABU AL SAEID](https://github.com/AbuAlSaeidRajon) - Fullstack developer
