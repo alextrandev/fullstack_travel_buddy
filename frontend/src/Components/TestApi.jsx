@@ -6,7 +6,7 @@ export default function TestApi() {
 
   useEffect(() => {
     axios
-      .get(`https://127.0.0.1:8000/api/destinations/`)
+      .get(`${import.meta.env.VITE_API_URL}destinations/`)
       .then(res => setApiData(res.data))
       .catch(err => console.log(err))
   }, []);
