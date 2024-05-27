@@ -2,16 +2,26 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 
 export default function TestApi() {
-  const [apiData, setApiData] = useState({});
+  const [apiData, setApiData] = useState([]);
 
   useEffect(() => {
     axios
       .get(`https://127.0.0.1:8000/api/destinations/`)
-      .then(response => console.log(response))
-      .catch(error => console.log(error))
+      .then(res => setApiData(res.data))
+      .catch(err => console.log(err))
   }, []);
 
+  // console.log(apiData);
+
   return (
-    <div>TestApi</div>
+    <>
+      {apiData.map(destination =>
+        <div key={destination.city}>
+          <img src={destination.imageUrl} alt={`Image of ${destination.city}`} />
+          <p>{destination.city}</p>
+        </div>
+      )
+      }
+    </>
   )
 }
