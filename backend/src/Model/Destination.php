@@ -4,8 +4,8 @@ namespace App\Model;
 
 class Destination
 {
-  private string $city;
-  private string $imageUrl;
+  public string $city;
+  public string $imageUrl;
 
   public function __construct($city)
   {
