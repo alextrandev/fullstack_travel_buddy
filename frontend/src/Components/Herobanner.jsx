@@ -8,6 +8,9 @@ const Herobanner = () => {
         alt="Hero Banner"
         className="hero-banner-image"
       />
+      <div className="hero-banner-text">
+        <h1>EXPLORE THE BEAUTY OF THE WORLD!</h1>
+      </div>
     </div>
   );
 };
