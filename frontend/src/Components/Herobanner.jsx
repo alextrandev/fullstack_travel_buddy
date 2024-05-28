@@ -1,4 +1,5 @@
 import React from "react";
+import "./Herobanner.css";
 
 const Herobanner = () => {
   return (
