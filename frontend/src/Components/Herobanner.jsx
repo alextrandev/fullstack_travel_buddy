@@ -1,19 +1,12 @@
-import React from "react";
-import "./Herobanner.css";
-
-const Herobanner = () => {
+import './HeroBanner.css';
+import heroImage from '../assets/hb_blur.jpg';
+const HeroBanner = () => {
   return (
-    <div className="hero-banner">
-      <img
-        src="/Assets/Images/herobannerproject.jpeg"
-        alt="Hero Banner"
-        className="hero-banner-image"
-      />
-      <div className="hero-banner-text">
-        <h1>EXPLORE THE BEAUTY OF THE WORLD!</h1>
-      </div>
+    <div className="hero-banner" style={{ backgroundImage: `url(${heroImage})` }}>
+      {/* might need to make the text their own div and paragraph in the future for better mobile adaptation in the future */}
+      <div className="hero-content"></div>
     </div>
   );
 };
 
-export default Herobanner;
+export default HeroBanner;
