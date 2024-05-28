@@ -1,9 +1,17 @@
 import HeroBanner from "./Components/HeroBanner"
-export default function App() {
+import { BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import Herobanner from "./Components/Herobanner";
 
+  export default function App() {
   return (
     <>
-      <HeroBanner />
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Herobanner />
+      </div>
+    </Router>
     </>
-  )
+  );
 }
