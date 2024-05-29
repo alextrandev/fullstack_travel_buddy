@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Model\Destination;
+use App\Model\DestinationData;
 use Psr\Log\LoggerInterface;
 
 class DestinationRepository
@@ -29,5 +30,19 @@ class DestinationRepository
       new Destination('St. Petersburg'),
       new Destination('Bangkok'),
     ];
+  }
+
+  public function findOne($destinationName): ?DestinationData
+  {
+    $this->log->info('Looking for destination data...');
+
+    foreach ($this->findAll() as $destination) {
+      if ($destination->getCity() === $destinationName) {
+        $this->log->info('Destination data found');
+      } else {
+        $this->log->info("Can't find destination");
+        return null;
+      }
+    }
   }
 }
