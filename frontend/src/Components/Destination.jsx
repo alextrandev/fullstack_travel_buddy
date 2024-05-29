@@ -1,7 +1,7 @@
 import React from "react";
 import "./Destination.css";
 
-const Destination = () => {
+const Destination = (destinations) => {
   return (
     <div className="destination">
       <h1>Popular Tourist Destinations</h1>
