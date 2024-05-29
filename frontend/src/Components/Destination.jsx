@@ -1,7 +1,17 @@
-import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./Destination.css";
 
-const Destination = (destinations) => {
+const Destination = () => {
+  const [destinations, setDestinations] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}destinations/`)
+      .then((res) => setDestinations(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className="destination">
       <h1>Popular Tourist Destinations</h1>
