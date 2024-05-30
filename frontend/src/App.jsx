@@ -4,7 +4,7 @@ import HeroBanner from "./Components/HeroBanner.jsx";
 import Destination from "./Components/Destination.jsx";
 import CityInfo from "./Routes/CityInfo";
 import SearchBar from "./Components/SearchBar.jsx";
-import SearchResult from "./Components/SearchResult.jsx"
+import SearchResult from "./Components/SearchResult.jsx";
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -12,7 +12,8 @@ import { useEffect, useState } from "react";
 
 const App = () => {
   const [destinations, setDestinations] = useState([]);
-  const [results, setResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [showSearchResults, setShowSearchResults] = useState(false);
 
   useEffect(() => {
     axios
@@ -38,9 +39,10 @@ const App = () => {
   }, []);
 
   const handleSubmit = query => {
+    setShowSearchResults(true);
     axios
       .get(`${import.meta.env.VITE_API_URL}destinations`)
-      .then(res => setResults(res.data.filter(item => item.city.toLowerCase().includes(query.trim().toLowerCase()))))
+      .then(res => setSearchResults(res.data.filter(item => item.city.toLowerCase().includes(query.trim().toLowerCase()))))
       .catch((err) => console.log(err))
   };
 
@@ -55,7 +57,7 @@ const App = () => {
             <Route path="/city/:cityName" element={CityInfo} />
           </Routes>
           <SearchBar handleSubmit={handleSubmit} />
-          <SearchResult results={results} />
+          {showSearchResults && <SearchResult results={searchResults} />}
         </div>
       </Router>
     </>

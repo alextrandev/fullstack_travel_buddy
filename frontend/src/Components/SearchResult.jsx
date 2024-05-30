@@ -1,5 +1,5 @@
 const SearchResults = ({ results }) => {
-  if (!results) {
+  if (results.length == 0) {
     return <div><p>No results found</p></div>
   }
 
