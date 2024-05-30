@@ -1,3 +1,7 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 const CityInfo = () => {
   const { cityName } = useParams();
   const [cityData, setCityData] = useState(null);
@@ -5,9 +9,9 @@ const CityInfo = () => {
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}destinations/${cityName}`)
-      .then((res) => setCityData(res.data)) // Set the city data on successful response
-      .catch((err) => console.log(err)); // Log any errors
-  }, [cityName]); // Run this effect whenever cityName changes
+      .then((res) => setCityData(res.data))
+      .catch((err) => console.log(err));
+  }, [cityName]);
 
   /* Display City name, image and description*/
   return (
