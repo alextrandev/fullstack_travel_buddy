@@ -1,7 +1,8 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import HeroBanner from "./Components/HeroBanner.jsx";
 import Destination from "./Components/Destination.jsx";
+import CityInfo from "./Routes/CityInfo";
 import SearchBar from "./Components/SearchBar.jsx";
 import SearchResult from "./Components/SearchResult.jsx"
 import "./App.css";
@@ -25,11 +26,13 @@ const App = () => {
         <div className="App">
           <Navbar />
           <HeroBanner />
+          <Routes>
+            <Route path="/" Component={Destination} />
+            <Route path="/city/:cityName" Component={CityInfo} />
+          </Routes>
           <Destination />
           <SearchBar handleSubmit={handleSubmit} />
           <SearchResult results={results} />
-
-
         </div>
       </Router>
     </>
