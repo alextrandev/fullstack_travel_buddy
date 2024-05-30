@@ -22,9 +22,7 @@ class DestinationData
 
   private function fetchPhotoUrl($queryString): string
   {
-    // to do, find new image source
-    //next line is place holder image
-    return "https://i.insider.com/5d3b004c2516e949fa4523b1?width=750&format=jpeg&auto=webp";
+    return "https://source.unsplash.com/400x400/?$queryString";
   }
 
   private function fetchDescription($city): string
@@ -48,7 +46,7 @@ class DestinationData
 
   private function fetchAttractionPhotosUrl(array $attractions): array
   {
-    return [];
+    return array_map(fn ($attraction) => "https://source.unsplash.com/400x400/?$attraction+$this->country", $attractions);
   }
 
   public function __construct(string $city, string $country, array $attractions)
