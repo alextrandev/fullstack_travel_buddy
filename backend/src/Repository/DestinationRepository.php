@@ -73,17 +73,21 @@ class DestinationRepository
     );
   }
 
-  public function findOne($destinationName): ?DestinationData
+  public function findOne($queryName): ?DestinationData
   {
     $this->log->info('Looking for destination data...');
 
-    foreach ($this->findAll() as $destination) {
-      if ($destination->getCity() === $destinationName) {
+    foreach ($this->destinationsDB as $destinationName => $destinationData) {
+      if (strtolower($destinationName) === $queryName) {
         $this->log->info('Destination data found');
-      } else {
-        $this->log->info("Can't find destination");
-        return null;
+
+        $destinationCountry = $destinationData["country"];
+        $destinationAttractions = $destinationData["attractions"];
+        return new DestinationData($destinationName, $destinationCountry, $destinationAttractions);
       }
     }
+
+    $this->log->info("Can't find destination");
+    return null;
   }
 }
