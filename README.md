@@ -37,13 +37,13 @@ Libraries and frameworks:
 1. Clone the project: ``` git clone https://github.com/alextrandev/fullstack_travel_buddy.git```
 2. Change to frontend directory: ```cd fullstack_travel_buddy/frontend```
 3. Install frontend dependencies: ```npm i```
-4. Host the frontend in local server: ```npm run dev```
+4. Host the frontend in local server: ```npm run dev -- --port=5173```. If it show port error, close all terminal and stop docker desktop containers
 5. Open a new terminal, cd to backend folder.
 6. Install backend dependencies: ```composer i```
-7. Host the backend in local server: ```symfony serve```
+7. Host the backend in local server: ```symfony serve --port=8000```.  If it show port error, close all terminal and stop docker desktop containers
 
-Frontend should run on local port: ```http://localhost:5173```. _If not, check the console for the right port_
-Backend should run on local port: ```https://127.0.0.1:8000``` _If not then check the console for the right port_
+Frontend should run on local port: ```http://localhost:5173```
+Backend should run on local port: ```https://127.0.0.1:8000```
 
 **Before working on a feature**
 1. Remember to pull the changes from main branch ```git pull origin main```
