@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import HeroBanner from "./Components/HeroBanner.jsx";
 import Destination from "./Components/Destination.jsx";
@@ -11,10 +11,10 @@ export default function App() {
         <div className="App">
           <Navbar />
           <HeroBanner />
-          <Switch>
+          <Routes>
             <Route path="/" Component={Destination} />
             <Route path="/city/:cityName" Component={CityInfo} />
-          </Switch>
+          </Routes>
         </div>
       </Router>
     </>
