@@ -14,16 +14,11 @@ const CityInfo = () => {
       .catch((err) => console.log(err));
   }, [cityName]);
 
-  /* Display City name, image and description*/
+  console.log(cityData);
+
   return (
     <div className="city-info">
-      <h1>{cityData.city}</h1>
-      <img
-        src={cityData.imageUrl}
-        alt={`Image of ${cityData.city}`}
-        className="city-image"
-      />
-      <p>{cityData.description}</p>
+      <p>To do: add page content here</p>
     </div>
   );
 };
