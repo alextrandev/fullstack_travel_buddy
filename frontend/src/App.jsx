@@ -6,22 +6,21 @@ import SearchBar from "./Components/SearchBar.jsx";
 import SearchResult from "./Components/SearchResult.jsx"
 import "./App.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 const App = () => {
-  const [results, setResults] =useState([]);
-  const handleSearch = (query) => {
-    //console.log('Searching for:', query);
-    useEffect(() => {
+  const [results, setResults] = useState([]);
+
+  const handleSubmit = (e, query) => {
+    e.preventDefault();
     axios
       .get(`${import.meta.env.VITE_API_URL}destinations/`)
-      .then((res) => setDestinations(res.data))
-      .catch((err) => console.log(err));
-  }, []);
+      .then(res => {
+        setResults(res.data.filter(item => item.city.toLowerCase() == query.trim().toLowerCase()))
+      })
+      .catch((err) => console.log(err))
   };
-  
-
 
   return (
     <>
@@ -30,15 +29,15 @@ const App = () => {
           <Navbar />
           <HeroBanner />
           <Destination />
-          <SearchBar onSearch={handleSearch } />
+          <SearchBar handleSubmit={handleSubmit} />
           <SearchResult results={results} />
-          
+
 
         </div>
       </Router>
-      </>
-    
+    </>
+
   );
 };
 export default App;
-  
+

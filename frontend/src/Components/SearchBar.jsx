@@ -1,36 +1,22 @@
+import { useState } from "react";
 
-import React, { useState } from 'react';
-
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ handleSubmit }) => {
   const [query, setQuery] = useState('');
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
   };
 
-  const handleSearch = () => {
-    if (onSearch) {
-      onSearch(query);
-    }
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
-  };
-
   return (
-    <div>
+    <form>
       <input
         type="text"
         value={query}
         onChange={handleInputChange}
-        onKeyPress={handleKeyPress}
         placeholder="Search..."
       />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+      <button onClick={(e, query) => handleSubmit(e, query)}>Search</button>
+    </form>
   );
 };
 
