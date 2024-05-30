@@ -7,7 +7,7 @@ const Destination = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}destinations/dawdw`)
+      .get(`${import.meta.env.VITE_API_URL}destinations`)
       .then((res) => setDestinations(res.data))
       .catch((err) => {
         console.log(err)
