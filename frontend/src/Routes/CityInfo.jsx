@@ -1,4 +1,6 @@
 const CityInfo = () => {
+  const { cityName } = useParams();
+  const [cityData, setCityData] = useState(null);
   /* Display City name, image and description*/
   return (
     <div className="city-info">
