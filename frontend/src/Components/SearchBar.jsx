@@ -7,16 +7,24 @@ const SearchBar = ({ handleSubmit }) => {
     setQuery(e.target.value);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit(query);
+  };
+
   return (
-    <form>
-      <input
-        type="text"
-        value={query}
-        onChange={handleInputChange}
-        placeholder="Search..."
-      />
-      <button onClick={(e, query) => handleSubmit(e, query)}>Search</button>
-    </form>
+    <>
+      <h1>Search for a destination</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          value={query}
+          onChange={handleInputChange}
+          placeholder="Search..."
+        />
+        <button type="submit">Search</button>
+      </form>
+    </>
   );
 };
 

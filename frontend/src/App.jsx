@@ -12,13 +12,10 @@ import { useState } from "react";
 const App = () => {
   const [results, setResults] = useState([]);
 
-  const handleSubmit = (e, query) => {
-    e.preventDefault();
+  const handleSubmit = query => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}destinations/`)
-      .then(res => {
-        setResults(res.data.filter(item => item.city.toLowerCase() == query.trim().toLowerCase()))
-      })
+      .get(`${import.meta.env.VITE_API_URL}destinations`)
+      .then(res => setResults(res.data.filter(item => item.city.toLowerCase().includes(query.trim().toLowerCase()))))
       .catch((err) => console.log(err))
   };
 

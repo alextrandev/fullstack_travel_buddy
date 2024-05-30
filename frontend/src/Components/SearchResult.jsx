@@ -1,17 +1,24 @@
-
-import React from 'react';
-
 const SearchResults = ({ results }) => {
-  if (!results.length) {
-    return <div>No results found</div>;
+  if (!results) {
+    return <div><p>No results found</p></div>
   }
 
   return (
-    <ul>
-      {results.map((result, index) => (
-        <li key={index}>{result}</li>
-      ))}
-    </ul>
+    <div className="destination">
+      <div className="popular-destinations">
+        {results.map((destination) => (
+          <div className="destination-card" key={destination.city}>
+            <img
+              src={destination.imageUrl}
+              alt={`Image of ${destination.city}`}
+              className="destination-image"
+            />
+            <h3>{destination.city}</h3>
+            <p>{destination.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
