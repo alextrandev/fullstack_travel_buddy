@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Destination.css";
 
 const Destination = () => {
@@ -25,6 +26,9 @@ const Destination = () => {
             />
             <h3>{destination.city}</h3>
             <p>{destination.description}</p>
+            <Link to={`/city/${destination.city}`}>
+              More information about the city
+            </Link>
           </div>
         ))}
       </div>
