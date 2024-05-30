@@ -7,10 +7,48 @@
     background-position: center;
     color: white;
     text-align: center;
-}
-
-.hero-content {
+  }
+  
+  .hero-content {
     padding: 20px;
     border-radius: 10px;
-}
-
+    display: flex; /* added */
+    flex-direction: column; /* added */
+    align-items: center; /* added */
+  }
+  
+  .suggested-destinations {
+    margin-top: 40px; /* added space between hero content and suggested destinations */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .suggestion-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .suggestion-card {
+    margin: 10px;
+    width: 200px; /* adjust width as needed */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .suggestion-image {
+    width: 100%;
+    height: 100px; /* adjust height as needed */
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .suggestion-card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
