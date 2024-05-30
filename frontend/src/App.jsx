@@ -3,8 +3,23 @@ import Navbar from "./Components/Navbar";
 import HeroBanner from "./Components/HeroBanner.jsx";
 import Destination from "./Components/Destination.jsx";
 import CityInfo from "./Routes/CityInfo";
+import SearchBar from "./Components/SearchBar.jsx";
+import SearchResult from "./Components/SearchResult.jsx"
+import "./App.css";
+import axios from "axios";
+import { useState } from "react";
 
-export default function App() {
+
+const App = () => {
+  const [results, setResults] = useState([]);
+
+  const handleSubmit = query => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}destinations`)
+      .then(res => setResults(res.data.filter(item => item.city.toLowerCase().includes(query.trim().toLowerCase()))))
+      .catch((err) => console.log(err))
+  };
+
   return (
     <>
       <Router>
@@ -15,8 +30,14 @@ export default function App() {
             <Route path="/" Component={Destination} />
             <Route path="/city/:cityName" Component={CityInfo} />
           </Routes>
+          <Destination />
+          <SearchBar handleSubmit={handleSubmit} />
+          <SearchResult results={results} />
         </div>
       </Router>
     </>
+
   );
-}
+};
+export default App;
+
