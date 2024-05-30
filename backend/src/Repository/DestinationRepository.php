@@ -78,7 +78,7 @@ class DestinationRepository
     $this->log->info('Looking for destination data...');
 
     foreach ($this->destinationsDB as $destinationName => $destinationData) {
-      if (strtolower($destinationName) === $queryName) {
+      if (strtolower($destinationName) == strtolower($queryName)) {
         $this->log->info('Destination data found');
 
         $destinationCountry = $destinationData["country"];
