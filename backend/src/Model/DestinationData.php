@@ -14,15 +14,13 @@ class DestinationData
   public string $wikiLink;
   public array $cityInfo;
   public array $attractions;
-  public array $attractionsPhotos;
 
   public function __construct(string $city, string $country, array $attractions, private LoggerInterface $log, private HttpClientInterface $client)
   {
     $this->city = $city;
     $this->country = $country;
     $this->photoUrl = "https://source.unsplash.com/400x400/?$city";
-    $this->attractions = $attractions;
-    $this->attractionsPhotos = $this->fetchAttractionPhotosUrl($attractions);
+    $this->attractions = array_map(fn ($attraction) => ["name" => $attraction, "photo" => "https://source.unsplash.com/400x400/?$attraction+$this->country"], $attractions);
 
     // fetch info from wikipedia
     $responseFromWiki = $this->client->request(
@@ -40,10 +38,5 @@ class DestinationData
     );
     $content = $responseFromRestCountries->toArray();
     $this->cityInfo = $content[0];
-  }
-
-  private function fetchAttractionPhotosUrl(array $attractions): array
-  {
-    return array_map(fn ($attraction) => "https://source.unsplash.com/400x400/?$attraction+$this->country", $attractions);
   }
 }
