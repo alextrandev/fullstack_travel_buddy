@@ -2,6 +2,9 @@
 
 namespace App\Model;
 
+use Psr\Log\LoggerInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+
 class DestinationData
 {
   public string $city;
@@ -12,11 +15,29 @@ class DestinationData
   public array $cityInfo;
   public array $attractions;
   public array $attractionsPhotos;
+  // private HttpClientInterface $client;
+  // private LoggerInterface $log;
+
+  public function __construct(string $city, string $country, array $attractions, public LoggerInterface $log, public HttpClientInterface $client)
+  {
+    $this->city = $city;
+    $this->country = $country;
+    $this->flagUrl = $this->fetchFlagUrl($country);
+    $this->photoUrl = $this->fetchPhotoUrl($city);
+    $this->description = $this->fetchDescription($city);
+    $this->cityInfo = $this->fetchCityInfo($country);
+    $this->attractions = $attractions;
+    $this->attractionsPhotos = $this->fetchAttractionPhotosUrl($attractions);
+  }
 
   private function fetchFlagUrl($country): string
   {
-    // to do, fetch flag from rest country
-    // next line is placeholder flag image
+    $res = $this->client->request(
+      'GET',
+      "https://en.wikipedia.org/api/rest_v1/page/summary/$this->city"
+    );
+    $content = $res->getContent();
+    $this->log->info($content);
     return "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/255px-Flag_of_France.svg.png";
   }
 
@@ -47,17 +68,5 @@ class DestinationData
   private function fetchAttractionPhotosUrl(array $attractions): array
   {
     return array_map(fn ($attraction) => "https://source.unsplash.com/400x400/?$attraction+$this->country", $attractions);
-  }
-
-  public function __construct(string $city, string $country, array $attractions)
-  {
-    $this->city = $city;
-    $this->country = $country;
-    $this->flagUrl = $this->fetchFlagUrl($country);
-    $this->photoUrl = $this->fetchPhotoUrl($city);
-    $this->description = $this->fetchDescription($city);
-    $this->cityInfo = $this->fetchCityInfo($country);
-    $this->attractions = $attractions;
-    $this->attractionsPhotos = $this->fetchAttractionPhotosUrl($attractions);
   }
 }
