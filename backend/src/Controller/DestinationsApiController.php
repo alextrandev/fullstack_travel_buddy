@@ -14,7 +14,7 @@ class DestinationsApiController extends AbstractController
     #[Route('', name: 'app_destinations_api', methods: ['GET'])]
     public function getAll(DestinationRepository $repository): Response
     {
-        $destinations = $repository->findAll();
+        $destinations = $repository->getAll();
         return $this->json($destinations);
     }
 
@@ -22,7 +22,7 @@ class DestinationsApiController extends AbstractController
     #[Route('/{destination}', name: 'app_single_destination_api', methods: ['GET'])]
     public function getOne(string $destination, DestinationRepository $repository): Response
     {
-        $destinations = $repository->findOne($destination);
+        $destinations = $repository->getOne($destination);
         return $this->json($destinations);
     }
 }

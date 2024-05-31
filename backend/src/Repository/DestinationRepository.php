@@ -64,7 +64,7 @@ class DestinationRepository
   { // autowiring the logger interface
   }
 
-  public function findAll(): array
+  public function getAll(): array
   {
     $this->log->info('All destinations sent!');
 
@@ -74,7 +74,7 @@ class DestinationRepository
     );
   }
 
-  public function findOne($queryName): ?DestinationData
+  public function getOne($queryName): ?DestinationData
   {
     $this->log->info('Looking for destination data...');
 
@@ -90,5 +90,20 @@ class DestinationRepository
 
     $this->log->info("Can't find destination");
     return null;
+  }
+
+  public function findOne($queryName): bool
+  {
+    $this->log->info('Looking for destination data...');
+
+    foreach ($this->destinationsDB as $destinationName => $destinationData) {
+      if (strtolower($destinationName) == strtolower($queryName)) {
+        $this->log->info('Destination data found');
+        return true;
+      }
+    }
+
+    $this->log->info("Can't find destination");
+    return false;
   }
 }
