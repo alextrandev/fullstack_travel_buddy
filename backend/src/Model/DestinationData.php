@@ -9,7 +9,6 @@ class DestinationData
 {
   public string $city;
   public string $country;
-  public string $flagUrl;
   public string $photoUrl;
   public string $description;
   public string $wikiLink;
@@ -21,9 +20,7 @@ class DestinationData
   {
     $this->city = $city;
     $this->country = $country;
-    $this->flagUrl = $this->fetchFlagUrl($country);
     $this->photoUrl = "https://source.unsplash.com/400x400/?$city";
-    $this->cityInfo = $this->fetchCityInfo($country);
     $this->attractions = $attractions;
     $this->attractionsPhotos = $this->fetchAttractionPhotosUrl($attractions);
 
@@ -35,25 +32,14 @@ class DestinationData
     $wikiContent = $responseFromWiki->toArray();
     $this->description = $wikiContent["extract"];
     $this->wikiLink = $wikiContent["content_urls"]["desktop"]["page"];
-  }
 
-  private function fetchFlagUrl($country): string
-  {
-    // to do, fetch flag from rest country
-    // next line is placeholder flag image
-    return "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/255px-Flag_of_France.svg.png";
-  }
-
-  private function fetchCityInfo($country): array
-  {
-    // to do, fetch some description from rest country
-    // next line is placeholder array
-    return [
-      "country" => "France",
-      "region" => "Europe",
-      "currency" => "EUR",
-      "language" => ["English", "French"],
-    ];
+    // fetch from Rest Countries
+    $responseFromRestCountries = $this->client->request(
+      'GET',
+      "https://restcountries.com/v3.1/name/$country?fields=name,currencies,subregion,languages,timezones,continents,flag"
+    );
+    $content = $responseFromRestCountries->toArray();
+    $this->cityInfo = $content[0];
   }
 
   private function fetchAttractionPhotosUrl(array $attractions): array
