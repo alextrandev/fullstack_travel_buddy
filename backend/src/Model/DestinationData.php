@@ -16,20 +16,25 @@ class DestinationData
   public array $cityInfo;
   public array $attractions;
   public array $attractionsPhotos;
-  // private HttpClientInterface $client;
-  // private LoggerInterface $log;
 
-  public function __construct(string $city, string $country, array $attractions, public LoggerInterface $log, public HttpClientInterface $client)
+  public function __construct(string $city, string $country, array $attractions, private LoggerInterface $log, private HttpClientInterface $client)
   {
     $this->city = $city;
     $this->country = $country;
     $this->flagUrl = $this->fetchFlagUrl($country);
     $this->photoUrl = "https://source.unsplash.com/400x400/?$city";
-    $this->description = $this->fetchFromWiki($city)["description"];
-    $this->wikiLink = $this->fetchFromWiki($city)["wikiLink"];
     $this->cityInfo = $this->fetchCityInfo($country);
     $this->attractions = $attractions;
     $this->attractionsPhotos = $this->fetchAttractionPhotosUrl($attractions);
+
+    // fetch info from wikipedia
+    $responseFromWiki = $this->client->request(
+      'GET',
+      "https://en.wikipedia.org/api/rest_v1/page/summary/$city"
+    );
+    $wikiContent = $responseFromWiki->toArray();
+    $this->description = $wikiContent["extract"];
+    $this->wikiLink = $wikiContent["content_urls"]["desktop"]["page"];
   }
 
   private function fetchFlagUrl($country): string
@@ -37,20 +42,6 @@ class DestinationData
     // to do, fetch flag from rest country
     // next line is placeholder flag image
     return "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/255px-Flag_of_France.svg.png";
-  }
-
-  private function fetchFromWiki($city): array
-  {
-    $res = $this->client->request(
-      'GET',
-      "https://en.wikipedia.org/api/rest_v1/page/summary/$this->city"
-    );
-    $content = $res->toArray();
-
-    return [
-      "description" => $content["extract"],
-      "wikiLink" => $content["content_urls"]["desktop"]["page"],
-    ];
   }
 
   private function fetchCityInfo($country): array
