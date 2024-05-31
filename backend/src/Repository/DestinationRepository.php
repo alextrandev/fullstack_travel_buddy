@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Model\Destination;
 use App\Model\DestinationData;
 use Psr\Log\LoggerInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class DestinationRepository
 {
@@ -13,7 +14,7 @@ class DestinationRepository
       'country' => 'France',
       'attractions' => ['Eiffel Tower', 'Louvre Museum', 'Notre-Dame Cathedral', 'Champs-Élysées']
     ],
-    'New York' => [
+    'New York City' => [
       'country' => 'USA',
       'attractions' => ['Statue of Liberty', 'Central Park', 'Times Square', 'Empire State Building']
     ],
@@ -59,7 +60,7 @@ class DestinationRepository
     ]
   ];
 
-  public function __construct(private LoggerInterface $log)
+  public function __construct(public LoggerInterface $log, public HttpClientInterface $client)
   { // autowiring the logger interface
   }
 
@@ -83,7 +84,7 @@ class DestinationRepository
 
         $destinationCountry = $destinationData["country"];
         $destinationAttractions = $destinationData["attractions"];
-        return new DestinationData($destinationName, $destinationCountry, $destinationAttractions);
+        return new DestinationData($destinationName, $destinationCountry, $destinationAttractions, $this->log, $this->client);
       }
     }
 

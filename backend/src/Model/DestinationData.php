@@ -2,62 +2,41 @@
 
 namespace App\Model;
 
+use Psr\Log\LoggerInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+
 class DestinationData
 {
   public string $city;
   public string $country;
-  public string $flagUrl;
   public string $photoUrl;
   public string $description;
+  public string $wikiLink;
   public array $cityInfo;
   public array $attractions;
-  public array $attractionsPhotos;
 
-  private function fetchFlagUrl($country): string
-  {
-    // to do, fetch flag from rest country
-    // next line is placeholder flag image
-    return "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/255px-Flag_of_France.svg.png";
-  }
-
-  private function fetchPhotoUrl($queryString): string
-  {
-    return "https://source.unsplash.com/400x400/?$queryString";
-  }
-
-  private function fetchDescription($city): string
-  {
-    // to do, fetch a short description from wikimedia
-    // next line is placeholder
-    return "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, repellendus.";
-  }
-
-  private function fetchCityInfo($country): array
-  {
-    // to do, fetch some description from rest country
-    // next line is placeholder array
-    return [
-      "country" => "France",
-      "region" => "Europe",
-      "currency" => "EUR",
-      "language" => ["English", "French"],
-    ];
-  }
-
-  private function fetchAttractionPhotosUrl(array $attractions): array
-  {
-    return array_map(fn ($attraction) => "https://source.unsplash.com/400x400/?$attraction+$this->country", $attractions);
-  }
-
-  public function __construct(string $city, string $country, array $attractions)
+  public function __construct(string $city, string $country, array $attractions, private LoggerInterface $log, private HttpClientInterface $client)
   {
     $this->city = $city;
     $this->country = $country;
-    $this->flagUrl = $this->fetchFlagUrl($country);
-    $this->photoUrl = $this->fetchPhotoUrl($city);
-    $this->description = $this->fetchDescription($city);
-    $this->cityInfo = $this->fetchCityInfo($country);
-    $this->attractions = $attractions;
-    $this->attractionsPhotos = $this->fetchAttractionPhotosUrl($attractions);
+    $this->photoUrl = "https://source.unsplash.com/400x400/?$city";
+    $this->attractions = array_map(fn ($attraction) => ["name" => $attraction, "photo" => "https://source.unsplash.com/400x400/?$attraction+$this->country"], $attractions);
+
+    // fetch info from wikipedia
+    $responseFromWiki = $this->client->request(
+      'GET',
+      "https://en.wikipedia.org/api/rest_v1/page/summary/$city"
+    );
+    $wikiContent = $responseFromWiki->toArray();
+    $this->description = $wikiContent["extract"];
+    $this->wikiLink = $wikiContent["content_urls"]["desktop"]["page"];
+
+    // fetch from Rest Countries
+    $responseFromRestCountries = $this->client->request(
+      'GET',
+      "https://restcountries.com/v3.1/name/$country?fields=name,currencies,subregion,languages,timezones,continents,flag"
+    );
+    $content = $responseFromRestCountries->toArray();
+    $this->cityInfo = $content[0];
   }
 }
