@@ -32,12 +32,8 @@ class DestinationData
 
   private function fetchFlagUrl($country): string
   {
-    $res = $this->client->request(
-      'GET',
-      "https://en.wikipedia.org/api/rest_v1/page/summary/$this->city"
-    );
-    $content = $res->getContent();
-    $this->log->info($content);
+    // to do, fetch flag from rest country
+    // next line is placeholder flag image
     return "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/255px-Flag_of_France.svg.png";
   }
 
@@ -48,8 +44,12 @@ class DestinationData
 
   private function fetchDescription($city): string
   {
-    // to do, fetch a short description from wikimedia
-    // next line is placeholder
+    $res = $this->client->request(
+      'GET',
+      "https://en.wikipedia.org/api/rest_v1/page/summary/$this->city"
+    );
+    $content = $res->toArray();
+    $this->log->info($content["extract"]);
     return "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, repellendus.";
   }
 
