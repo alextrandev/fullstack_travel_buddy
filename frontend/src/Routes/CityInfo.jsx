@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./CityInfo.css";
 import Divider from "../Components/Divider";
 import Map from "../Components/Map";
+import CityDescription from "../Components/CityDescription";
 
 const CityInfo = ({ destinationCoordinates }) => {
   const { cityName } = useParams();
@@ -45,12 +46,13 @@ const CityInfo = ({ destinationCoordinates }) => {
     // destinationCoordinates.forEach(destination => destination.name == cityName ? setCenterCoordinates(destination.coordinates) : null)
   }, [cityName, destinationCoordinates]);
 
+  if (!cityData) {
+    return <div>Page loading</div>;
+  }
+
   return (
     <div className="destination">
-
-      <div className="city-info">
-        <p>To do: add page content here</p>
-      </div>
+      <CityDescription cityData={cityData} />
       <Divider />
       <h1>Itinerary Planner</h1>
       <div className="itinerary-planner">

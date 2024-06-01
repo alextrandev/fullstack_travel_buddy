@@ -1,48 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
 import "./CityDescription.css";
 
-const CityDescription = () => {
-  const { cityName } = useParams();
-  const [cityData, setCityData] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}destinations?city=${cityName}`)
-      .then((res) => {
-        const city = res.data.find(
-          (item) => item.city.toLowerCase() === cityName.toLowerCase()
-        );
-        setCityData(city);
-      })
-      .catch((err) => console.log(err));
-  }, [cityName]);
-
-  if (!cityData) {
-    return <div>Page loading</div>;
-  }
-
+const CityDescription = ({ cityData }) => {
   return (
     <div className="city-description">
-      <Link to="/" className="back-link">
-        Back to HomePage
-      </Link>
-      <h1>{cityData.city}</h1>
-
       <img
-        src={cityData.imageUrl}
+        src={cityData.photoUrl}
         alt={`Image of ${cityData.city}`}
         className="city-image"
       />
-
-      <p>{cityData.description}</p>
-
-      <img
-        src={`${cityData.country}`}
-        alt={`Flag of ${cityData.country}`}
-        className="country-flag"
-      />
+      <div className="city-info-container">
+        <h1>{cityData.city} - {cityData.country} {cityData.cityInfo.flag}</h1>
+        <p>{cityData.description}</p>
+        <a href={cityData.wikiLink} target="blank">
+          <b>Read more about {cityData.city} on Wikipedia &gt;</b>
+        </a>
+      </div>
     </div>
   );
 };
