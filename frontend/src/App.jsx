@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Destination from "./Routes/Destination.jsx";
 import CityInfo from "./Routes/CityInfo";
-import CityDescription from "./Components/CityDescriptionPage";
+import CityDescription from "./Components/CityDescription";
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
