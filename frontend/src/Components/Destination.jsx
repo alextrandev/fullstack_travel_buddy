@@ -3,11 +3,13 @@ import "./Destination.css";
 import Map from "./Map.jsx";
 import SearchBar from "./SearchBar.jsx";
 import SearchResult from "./SearchResult.jsx";
+import Divider from "./Divider.jsx";
 
 const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults }) => {
 
   return (
     <div className="destination">
+      <Divider />
       <h1>Popular Tourist Destinations</h1>
       <div className="popular-destinations">
         {destinations.map((destination) => (
@@ -24,13 +26,16 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
           </div>
         ))}
       </div>
+      <Divider />
       <div className="search">
         <SearchBar handleSubmit={handleSubmit} />
         {showSearchResults && <SearchResult results={searchResults} />}
       </div>
+      <Divider />
       <div className="map">
         <Map />
       </div>
+      <Divider />
     </div>
   );
 };
