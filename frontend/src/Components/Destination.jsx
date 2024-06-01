@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Destination.css";
 import Map from "./Map.jsx";
+import SearchBar from "./SearchBar.jsx";
+import SearchResult from "./SearchResult.jsx";
 
-const Destination = ({ destinations }) => {
+const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults }) => {
 
   return (
     <div className="destination">
@@ -21,6 +23,10 @@ const Destination = ({ destinations }) => {
             </Link>
           </div>
         ))}
+      </div>
+      <div className="search">
+        <SearchBar handleSubmit={handleSubmit} />
+        {showSearchResults && <SearchResult results={searchResults} />}
       </div>
       <div className="map">
         <Map />
