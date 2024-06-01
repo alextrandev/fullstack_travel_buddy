@@ -6,6 +6,7 @@ import "./CityDescriptionPage.css";
 const CityDescription = () => {
   const { cityName } = useParams();
   const [cityData, setCityData] = useState(null);
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}destinations?city=${cityName}`)
@@ -17,3 +18,7 @@ const CityDescription = () => {
       })
       .catch((err) => console.log(err));
   }, [cityName]);
+
+  if (!cityData) {
+    return <div>Page loading</div>;
+  }
