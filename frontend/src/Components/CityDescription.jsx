@@ -29,4 +29,13 @@ const CityDescription = () => {
         Back to HomePage
       </Link>
       <h1>{cityData.city}</h1>
+
+      <img
+        src={cityData.imageUrl}
+        alt={`Image of ${cityData.city}`}
+        className="city-image"
+      />
+      
+      <p>{cityData.description}</p>
+      
       
