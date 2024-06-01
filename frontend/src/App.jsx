@@ -6,13 +6,11 @@ import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-
 const App = () => {
   const [destinations, setDestinations] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [destinationsCoordinates, setDestinationsCoordinates] = useState([]);
-  const [attractionsCoordinates, setAttractionsCoordinates] = useState([]);
 
   useEffect(() => {
     // get destinations data from backend
@@ -61,9 +59,7 @@ const App = () => {
             <Route
               path="/city/:cityName"
               element={
-                <CityInfo
-                  coordinates={attractionsCoordinates}
-                />
+                <CityInfo />
               }
             />
           </Routes>

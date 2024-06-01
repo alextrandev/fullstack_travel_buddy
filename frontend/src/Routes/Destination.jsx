@@ -34,6 +34,7 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
           {showSearchResults && <SearchResult results={searchResults} />}
         </div>
         <Divider />
+        <h1>World Map</h1>
         <div className="map">
           <Map
             coordinates={coordinates}
