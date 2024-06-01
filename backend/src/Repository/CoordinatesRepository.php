@@ -139,9 +139,9 @@ class CoordinatesRepository
 
     return array_map(
       fn ($city, $details) => [
-        'city' => $city,
-        'country' => $details['country'],
-        'coordination' => $details['coordination']
+        "name" => $city,
+        "country" => $details['country'],
+        "coordinates" => $details['coordination']
       ],
       array_keys($this->coordinatesDB),
       $this->coordinatesDB
@@ -156,7 +156,15 @@ class CoordinatesRepository
       if (strtolower($city) == strtolower($queryName)) {
         $this->log->info('Destination data found');
 
-        return $details["attractions"];
+        return array_map(
+          fn ($attraction, $coordinates) => [
+            "name" => $attraction,
+            "coordinates" => $coordinates
+          ],
+          array_keys($details["attractions"]),
+          $details["attractions"]
+
+        );
       }
     }
 
