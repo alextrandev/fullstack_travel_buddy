@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Destination.css";
-import Map from "./Map.jsx";
-import SearchBar from "./SearchBar.jsx";
-import SearchResult from "./SearchResult.jsx";
-import Divider from "./Divider.jsx";
-import HeroBanner from "./HeroBanner.jsx";
+import Map from "../Components/Map.jsx";
+import SearchBar from "../Components/SearchBar.jsx";
+import SearchResult from "../Components/SearchResult.jsx";
+import Divider from "../Components/Divider.jsx";
+import HeroBanner from "../Components/HeroBanner.jsx";
 
 const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults }) => {
 

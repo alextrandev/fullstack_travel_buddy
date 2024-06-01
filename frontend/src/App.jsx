@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Destination from "./Components/Destination.jsx";
+import Destination from "./Routes/Destination.jsx";
 import CityInfo from "./Routes/CityInfo";
 import "./App.css";
 import axios from "axios";
