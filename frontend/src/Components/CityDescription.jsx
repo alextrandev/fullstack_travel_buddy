@@ -35,7 +35,16 @@ const CityDescription = () => {
         alt={`Image of ${cityData.city}`}
         className="city-image"
       />
-      
+
       <p>{cityData.description}</p>
-      
-      
+
+      <img
+        src={`${cityData.country}`}
+        alt={`Flag of ${cityData.country}`}
+        className="country-flag"
+      />
+    </div>
+  );
+};
+
+export default CityDescription;
