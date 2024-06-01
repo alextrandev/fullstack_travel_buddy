@@ -7,6 +7,8 @@ input {
     padding: 10px;
     font-size: 16px;
     width: 200px;
+    height: 46px;
+    transition: all 0.5s linear;
 }
 
 button {
@@ -15,7 +17,7 @@ button {
     background-image: none;
     border: 1px solid #d68c45;
     border-radius: 4px;
-    box-shadow: #fff 4px 4px 0 0, #e69c8b 4px 4px 0 1px;
+    box-shadow: #fff 4px 4px 0 0, #e69c8b;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
@@ -34,28 +36,31 @@ button {
     -webkit-user-select: none;
     vertical-align: middle;
     white-space: nowrap;
+    transition: all 0.5s linear;
 }
 
-.button:focus {
+button:focus {
     text-decoration: none;
 }
 
-.button:hover {
+button:hover,
+input:hover {
     text-decoration: none;
-    
+    scale: 1.05;
 }
 
-.button:active {
+button:active {
     box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
     outline: 0;
 }
 
-.button:not([disabled]):active {
+button:not([disabled]):active {
     box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
     transform: translate(2px, 2px);
 }
 
-
-
-
-
+form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}

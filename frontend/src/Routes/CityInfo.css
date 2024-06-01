@@ -34,3 +34,31 @@
   font-size: 1.1em;
   line-height: 1.6;
 }
+
+.itinerary-planner {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Ensures list items take full height */
+  gap: 40px;
+}
+
+.itinerary-list {
+  flex: 1;
+  font-size: x-large;
+  margin: 50px 0 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Equally space items vertically */
+  text-align: start;
+  border-left: 4px dotted black;
+}
+
+.itinerary-attraction {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.itinerary-map {
+  padding-left: 20px; /* Add some space between list and map */
+  flex: 1;
+}

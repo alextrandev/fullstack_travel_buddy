@@ -12,21 +12,47 @@ h1 {
 .popular-destinations {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 40px;
 }
 
 .destination-card {
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s linear;
+  display: flex;
+}
+
+.destination-card:hover {
+  scale: 1.1;
+  rotate: 2deg;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .destination-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  scale: 1.2;
+  transition: all 0.5s linear;
+}
+
+.destination-card:hover .destination-image {
+  scale: 1.02;
+  rotate: -1deg;
+}
+
+.destination-name {
+  text-align: start;
+  font-size: x-large;
+  transition: all 0.5s linear;
+  padding-top: 13px;
+}
+
+.destination-card:hover ~.destination-name {
+  scale: 1.02;
+  rotate: 2deg;
+  top: 100px
 }
 
 .destination-card h3 {
