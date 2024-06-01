@@ -54,18 +54,20 @@ const CityInfo = ({ destinationCoordinates }) => {
       <Divider />
       <h1>Itinerary Planner</h1>
       <div className="itinerary-planner">
-        <ul>
-          {attractionCoordinates.map(attraction =>
-            <li key={attraction.name}>
-              {attraction.name}
+        <div className="itinerary-map">
+          <Map
+            coordinates={attractionCoordinates}
+            centerCoordinates={citiesCoordinates[cityName]}
+            fullMap={false}
+          />
+        </div>
+        <ul className="itinerary-list">
+          {attractionCoordinates.map((attraction, index) =>
+            <li key={attraction.name} className="itinerary-attraction">
+              {(index + 1) + ". " + attraction.name + ": " + (Math.floor(Math.random() * 4) + 1) + " hours"}
             </li>
           )}
         </ul>
-        <Map
-          coordinates={attractionCoordinates}
-          centerCoordinates={citiesCoordinates[cityName]}
-          fullMap={false}
-        />
       </div>
       <Divider />
     </div>

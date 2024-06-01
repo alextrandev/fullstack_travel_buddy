@@ -9,13 +9,14 @@ export default function Map({ coordinates, centerCoordinates, fullMap }) {
         <MapContainer
           style={{
             height: 600,
+            minWidth: '40vw',
             overflow: 'hidden', borderRadius: '10px',
             border: '2px dashed black',
             boxShadow: '0 0 10px gray',
           }}
           center={centerCoordinates}
           zoom={fullMap ? 2 : 11}
-          scrollWheelZoom={true}
+          scrollWheelZoom={false}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
