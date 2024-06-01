@@ -1,10 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import HeroBanner from "./Components/HeroBanner.jsx";
-import Destination from "./Components/Destination.jsx";
+import Destination from "./Routes/Destination.jsx";
 import CityInfo from "./Routes/CityInfo";
-import SearchBar from "./Components/SearchBar.jsx";
-import SearchResult from "./Components/SearchResult.jsx";
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -51,13 +48,20 @@ const App = () => {
       <Router>
         <div className="App">
           <Navbar />
-          <HeroBanner />
           <Routes>
-            <Route path="/" element={<Destination destinations={destinations} />} />
+            <Route
+              path="/"
+              element={
+                <Destination
+                  destinations={destinations}
+                  handleSubmit={handleSubmit}
+                  showSearchResults={showSearchResults}
+                  searchResults={searchResults}
+                />
+              }
+            />
             <Route path="/city/:cityName" element={CityInfo} />
           </Routes>
-          <SearchBar handleSubmit={handleSubmit} />
-          {showSearchResults && <SearchResult results={searchResults} />}
         </div>
       </Router>
     </>
