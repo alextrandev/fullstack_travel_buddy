@@ -22,3 +22,11 @@ const CityDescription = () => {
   if (!cityData) {
     return <div>Page loading</div>;
   }
+
+  return (
+    <div className="city-description">
+      <Link to="/" className="back-link">
+        Back to HomePage
+      </Link>
+      <h1>{cityData.city}</h1>
+      
