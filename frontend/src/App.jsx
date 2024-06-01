@@ -30,12 +30,18 @@ const App = () => {
       });
   }, []);
 
-  const handleSubmit = query => {
+  const handleSubmit = (query) => {
     setShowSearchResults(true);
     axios
       .get(`${import.meta.env.VITE_API_URL}destinations`)
-      .then(res => setSearchResults(res.data.filter(item => item.city.toLowerCase().includes(query.trim().toLowerCase()))))
-      .catch((err) => console.log(err))
+      .then((res) =>
+        setSearchResults(
+          res.data.filter((item) =>
+            item.city.toLowerCase().includes(query.trim().toLowerCase())
+          )
+        )
+      )
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -66,8 +72,6 @@ const App = () => {
         </div>
       </Router>
     </>
-
   );
 };
 export default App;
-
