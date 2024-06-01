@@ -6,3 +6,14 @@ import "./CityDescriptionPage.css";
 const CityDescription = () => {
   const { cityName } = useParams();
   const [cityData, setCityData] = useState(null);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}destinations?city=${cityName}`)
+      .then((res) => {
+        const city = res.data.find(
+          (item) => item.city.toLowerCase() === cityName.toLowerCase()
+        );
+        setCityData(city);
+      })
+      .catch((err) => console.log(err));
+  }, [cityName]);
