@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Destination.css";
+import Map from "./Map.jsx";
 
 const Destination = ({ destinations }) => {
 
@@ -20,6 +21,9 @@ const Destination = ({ destinations }) => {
             </Link>
           </div>
         ))}
+      </div>
+      <div className="map">
+        <Map />
       </div>
     </div>
   );
