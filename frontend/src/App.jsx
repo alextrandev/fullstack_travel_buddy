@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import HeroBanner from "./Components/HeroBanner.jsx";
 import Destination from "./Components/Destination.jsx";
 import CityInfo from "./Routes/CityInfo";
 import "./App.css";
@@ -49,7 +48,6 @@ const App = () => {
       <Router>
         <div className="App">
           <Navbar />
-          <HeroBanner />
           <Routes>
             <Route
               path="/"
