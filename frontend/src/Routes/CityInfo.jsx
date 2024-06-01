@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./CityInfo.css";
 import Divider from "../Components/Divider";
-import Map from "../Components/Map";
 import CityDescription from "../Components/CityDescription";
+import ItineraryPlanner from "../Components/ItineraryPlanner";
 
 const CityInfo = ({ destinationCoordinates }) => {
   const { cityName } = useParams();
@@ -32,8 +32,6 @@ const CityInfo = ({ destinationCoordinates }) => {
       .get(`${import.meta.env.VITE_API_URL}destinations/${cityName}`)
       .then((res) => setCityData(res.data))
       .catch((err) => console.log(err));
-
-    // setCenterCoordinates(citiesCoordinates.cityName)
   }, [cityName]);
 
   useEffect(() => {
@@ -42,8 +40,6 @@ const CityInfo = ({ destinationCoordinates }) => {
       .get(`${import.meta.env.VITE_API_URL}coordinates/${cityName}`)
       .then((res) => setAttractionCoordinates(res.data))
       .catch((err) => console.log(err));
-
-    // destinationCoordinates.forEach(destination => destination.name == cityName ? setCenterCoordinates(destination.coordinates) : null)
   }, [cityName, destinationCoordinates]);
 
   if (!cityData) {
@@ -54,23 +50,17 @@ const CityInfo = ({ destinationCoordinates }) => {
     <div className="destination">
       <CityDescription cityData={cityData} />
       <Divider />
-      <h1>Itinerary Planner</h1>
-      <div className="itinerary-planner">
-        <div className="itinerary-map">
-          <Map
-            coordinates={attractionCoordinates}
-            centerCoordinates={citiesCoordinates[cityName]}
-            fullMap={false}
-          />
-        </div>
-        <ul className="itinerary-list">
-          {attractionCoordinates.map((attraction, index) =>
-            <li key={attraction.name} className="itinerary-attraction">
-              {(index + 1) + ". " + attraction.name + ": " + (Math.floor(Math.random() * 4) + 1) + " hours"}
-            </li>
-          )}
-        </ul>
-      </div>
+      <p> To do: Destination Attractions </p>
+      <Divider />
+      <p> To do: Info about destination </p>
+      <Divider />
+      <p> To do: Weather forecast </p>
+      <Divider />
+      <ItineraryPlanner
+        attractionCoordinates={attractionCoordinates}
+        citiesCoordinates={citiesCoordinates}
+        cityName={cityName}
+      />
       <Divider />
     </div>
   );
