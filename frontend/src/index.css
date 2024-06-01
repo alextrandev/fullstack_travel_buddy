@@ -2,4 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Jost';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Sedan SC';
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.leaflet-control-attribution {
+  display: none;
 }

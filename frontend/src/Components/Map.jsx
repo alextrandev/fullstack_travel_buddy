@@ -1,28 +1,45 @@
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Link } from "react-router-dom";
 import 'leaflet/dist/leaflet.css';
 
-export default function Map() {
+export default function Map({ coordinates, centerCoordinates, fullMap }) {
   return (
     <>
-      <h1>World Map</h1>
       <div className='container'>
         <MapContainer
-          style={{ height: 536, overflow: 'hidden', borderRadius: '10px' }}
-          center={[51.505, -0.09]}
-          zoom={13}
+          style={{
+            height: 600,
+            minWidth: '40vw',
+            overflow: 'hidden', borderRadius: '10px',
+            border: '2px dashed black',
+            boxShadow: '0 0 10px gray',
+          }}
+          center={centerCoordinates}
+          zoom={fullMap ? 2 : 11}
           scrollWheelZoom={false}
         >
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[51.505, -0.09]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+          {coordinates.map((location) =>
+            <Marker key={location.name} position={location.coordinates}>
+              <Popup>
+                <div style={{ width: 130, height: 130 }} >
+                  <img
+                    src={`https://source.unsplash.com/130x130/?${location.name}`}
+                    alt={`Photo of ${location.name}`}
+                  />
+                </div>
+                <br />
+                <b>{location.name}</b>
+                {location.country && `, ${location.country}`}
+                <br />
+                {fullMap && <Link to={`/city/${location.name}`}>View destination</Link>}
+              </Popup>
+            </Marker>
+          )}
         </MapContainer>
-      </div>
+      </div >
     </>
   )
 }
