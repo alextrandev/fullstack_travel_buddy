@@ -6,7 +6,7 @@ import SearchResult from "../Components/SearchResult.jsx";
 import Divider from "../Components/Divider.jsx";
 import HeroBanner from "../Components/HeroBanner.jsx";
 
-const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults }) => {
+const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults, coordinates }) => {
 
   return (
     <>
@@ -35,7 +35,11 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
         </div>
         <Divider />
         <div className="map">
-          <Map />
+          <Map
+            coordinates={coordinates}
+            centerCoordinates={[33, 10]}
+            fullMap={true}
+          />
         </div>
         <Divider />
       </div>
