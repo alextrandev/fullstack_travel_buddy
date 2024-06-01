@@ -1,0 +1,55 @@
+.city-description {
+  background-color: #ffc9b9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.city-image {
+  width: 50%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.city-details {
+  flex: 1;
+  max-width: 600px;
+}
+
+.city-title {
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.city-title h1 {
+  margin: 0;
+  margin-right: 10px;
+}
+
+.country-flag {
+  width: 50px;
+  height: auto;
+}
+
+.city-description-text {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
