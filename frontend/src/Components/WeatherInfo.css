@@ -1,0 +1,53 @@
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-content {
+  background-color: #FFC9B9;
+  border-radius: 20px;
+  display: flex;
+  padding: 20px;
+  font-size: larger;
+  gap: 20px;
+  text-align: start;
+}
+
+.weather-content img {
+  width: 130px;
+  height: 130;
+  scale: 1.2;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.main-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.temperature {
+  font-weight: bolder;
+  font-size: 4.3rem;
+  line-height: 1;
+}
+
+.extra-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}

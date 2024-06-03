@@ -7,7 +7,6 @@ import HeroBanner from "../Components/HeroBanner.jsx";
 import DestinationCard from "../Components/DestinationCard.jsx";
 
 const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults, coordinates }) => {
-
   return (
     <>
       <HeroBanner />
@@ -16,7 +15,10 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
         <h1>Popular Tourist Destinations</h1>
         <div className="popular-destinations">
           {destinations.map((destination) => (
-            <DestinationCard key={destination.city} destination={destination} />
+            <DestinationCard
+              key={destination.city}
+              destination={destination}
+            />
           ))}
         </div>
         <Divider />
