@@ -8,7 +8,12 @@ const CityDescription = ({ cityData }) => {
       {
         cityData
           ? <>
-            <Image url={cityData.photoUrl} size={400} />
+            <Image
+              url={cityData.photoUrl}
+              size={400}
+              className={'city-image'}
+              text={false}
+            />
             <div className="city-info-container">
               <h1>{cityData.city} - {cityData.country} {cityData.cityInfo.flag}</h1>
               <p>{cityData.description}</p>

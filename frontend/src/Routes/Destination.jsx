@@ -5,6 +5,7 @@ import SearchBar from "../Components/SearchBar.jsx";
 import SearchResult from "../Components/SearchResult.jsx";
 import Divider from "../Components/Divider.jsx";
 import HeroBanner from "../Components/HeroBanner.jsx";
+import Image from "../Components/Image.jsx";
 
 const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults, coordinates }) => {
 
@@ -18,10 +19,11 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
           {destinations.map((destination) => (
             <Link key={destination.city} to={`/city/${destination.city}`}>
               <div className="destination-card">
-                <img
-                  src={destination.imageUrl}
-                  alt={`Image of ${destination.city}`}
+                <Image
+                  url={destination.imageUrl}
                   className="destination-image"
+                  size={250}
+                  text={false}
                 />
               </div>
               <h3 className="destination-name">{destination.city}</h3>
