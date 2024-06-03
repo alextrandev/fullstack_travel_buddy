@@ -21,7 +21,7 @@ export default function Map({ coordinates, centerCoordinates, fullMap }) {
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {coordinates.map((location) =>
+          {Array.isArray(coordinates) && coordinates.length > 0 && coordinates.map((location) =>
             <Marker key={location.name} position={location.coordinates}>
               <Popup>
                 <div style={{ width: 130, height: 130 }} >

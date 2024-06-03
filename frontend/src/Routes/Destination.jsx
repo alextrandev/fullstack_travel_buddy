@@ -16,14 +16,15 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
         <Divider />
         <h1>Popular Tourist Destinations</h1>
         <div className="popular-destinations">
-          {destinations.length === 0
-            ? <LoadingImage size={500} />
-            : destinations.map((destination) => (
+          {Array.isArray(destinations) && destinations.length > 0
+            ? destinations.map((destination) => (
               <DestinationCard
                 key={destination.city}
                 destination={destination}
               />
-            ))}
+            ))
+            : <LoadingImage size={500} />
+          }
         </div>
         <Divider />
         <div className="search">

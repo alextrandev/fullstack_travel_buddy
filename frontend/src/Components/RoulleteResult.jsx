@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import { random } from "../functions/functions";
 import LoadingImage from "./LoadingImage";
 import './WeatherInfo.css';
+import Image from './Image';
 
 export default function RouletteResult({ destinations }) {
   const [clickedIndex, setClickedIndex] = useState(null);
@@ -11,8 +11,10 @@ export default function RouletteResult({ destinations }) {
     return <LoadingImage size={400} />;
   }
 
-  const rouletteResults = [];
-  for (let i = 3; i--;) rouletteResults.push(destinations[random(destinations.length)]);
+  // create an array of destinations array index, shuffle it and take 3
+  const rouletteLottery = destinations.map((destinations, index) => index).sort(() => Math.random() - 0.5).slice(0, 3);
+  // get the destinations element match the lottery index
+  const rouletteResults = rouletteLottery.map(index => destinations[index]);
 
   const handleClick = (index) => {
     setClickedIndex(index);
@@ -26,13 +28,14 @@ export default function RouletteResult({ destinations }) {
 
   return (
     <div className="destination">
-      <h2>Choose a card to see your mistery destination!</h2>
+      <h2>Pick a card to see your mystery destination!</h2>
       <div
         className="popular-destinations"
         style={{
           gridTemplateColumns: '1fr 1fr 1fr',
           padding: '70px',
-          paddingTop: '20px'
+          paddingTop: '50px',
+          paddingBottom: '10px'
         }}>
         {rouletteResults.map((destination, index) => (
           <div
@@ -46,10 +49,11 @@ export default function RouletteResult({ destinations }) {
               onClick={e => handleLinkClick(e, index)}
             >
               <div className="destination-card">
-                <img
-                  src={destination.imageUrl}
-                  alt={`Image of ${destination.city}`}
+                <Image
+                  url={destination.imageUrl}
                   className="destination-image"
+                  size={250}
+                  text={false}
                 />
               </div>
               <h3 className="destination-name">{destination.city}</h3>
@@ -57,7 +61,7 @@ export default function RouletteResult({ destinations }) {
           </div>
         ))}
       </div>
-      {clickedIndex && <h2>The Oracle said: You going to {rouletteResults[clickedIndex].city}!</h2>}
+      {clickedIndex !== null && <h2>The Tarot reader said: You going to {rouletteResults[clickedIndex].city}!</h2>}
     </div>
   );
 }
