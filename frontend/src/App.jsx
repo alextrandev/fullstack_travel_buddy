@@ -10,6 +10,7 @@ const App = () => {
   const [destinations, setDestinations] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
+  const [showRoullete, setShowRoullete] = useState(false);
   const [destinationsCoordinates, setDestinationsCoordinates] = useState([]);
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const App = () => {
 
   const handleSubmit = (query) => {
     setShowSearchResults(true);
+    setShowRoullete(false);
     axios
       .get(`${import.meta.env.VITE_API_URL}destinations`)
       .then((res) =>
@@ -43,6 +45,12 @@ const App = () => {
       )
       .catch((err) => console.log(err));
   };
+
+  const handleRoullete = e => {
+    e.preventDefault();
+    setShowSearchResults(false);
+    setShowRoullete(true);
+  }
 
   return (
     <>
@@ -56,7 +64,9 @@ const App = () => {
                 <Destination
                   destinations={destinations}
                   handleSubmit={handleSubmit}
+                  handleRoullete={handleRoullete}
                   showSearchResults={showSearchResults}
+                  showRoullete={showRoullete}
                   searchResults={searchResults}
                   coordinates={destinationsCoordinates}
                 />

@@ -6,8 +6,9 @@ import Divider from "../Components/Divider.jsx";
 import HeroBanner from "../Components/HeroBanner.jsx";
 import DestinationCard from "../Components/DestinationCard.jsx";
 import RoulleteResult from "../Components/RoulleteResult.jsx";
+import LoadingImage from "../Components/LoadingImage.jsx";
 
-const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults, coordinates }) => {
+const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults, showRoullete, handleRoullete, coordinates }) => {
   return (
     <>
       <HeroBanner />
@@ -15,18 +16,20 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
         <Divider />
         <h1>Popular Tourist Destinations</h1>
         <div className="popular-destinations">
-          {destinations.map((destination) => (
-            <DestinationCard
-              key={destination.city}
-              destination={destination}
-            />
-          ))}
+          {destinations.length === 0
+            ? <LoadingImage size={500} />
+            : destinations.map((destination) => (
+              <DestinationCard
+                key={destination.city}
+                destination={destination}
+              />
+            ))}
         </div>
         <Divider />
         <div className="search">
-          <SearchBar handleSubmit={handleSubmit} />
+          <SearchBar handleSubmit={handleSubmit} handleRoullete={handleRoullete} />
           {showSearchResults && <SearchResult results={searchResults} />}
-          <RoulleteResult destinations={destinations} />
+          {showRoullete && <RoulleteResult destinations={destinations} />}
         </div>
         <Divider />
         <h1>World Map</h1>
