@@ -19,9 +19,9 @@ export default function Loading({ type }) {
   if (type == "dot") {
     return (
       <l-dot-pulse
-        size="43"
-        speed="1.3"
-        color="black"
+        size="12"
+        speed="2"
+        color="#00000070"
       ></l-dot-pulse>
     )
   }

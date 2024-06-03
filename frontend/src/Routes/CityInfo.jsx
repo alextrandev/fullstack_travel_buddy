@@ -41,11 +41,6 @@ const CityInfo = ({ destinationCoordinates }) => {
       .then((res) => setAttractionCoordinates(res.data))
       .catch((err) => console.log(err));
   }, [cityName, destinationCoordinates]);
-
-  if (!cityData) {
-    return <div>Page loading</div>;
-  }
-
   return (
     <div className="destination">
       <CityDescription cityData={cityData} />
