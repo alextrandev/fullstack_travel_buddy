@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import "./Destination.css";
 import Map from "../Components/Map.jsx";
 import SearchBar from "../Components/SearchBar.jsx";
 import SearchResult from "../Components/SearchResult.jsx";
 import Divider from "../Components/Divider.jsx";
 import HeroBanner from "../Components/HeroBanner.jsx";
+import DestinationCard from "../Components/DestinationCard.jsx";
 
 const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults, coordinates }) => {
 
@@ -16,16 +16,7 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
         <h1>Popular Tourist Destinations</h1>
         <div className="popular-destinations">
           {destinations.map((destination) => (
-            <Link key={destination.city} to={`/city/${destination.city}`}>
-              <div className="destination-card">
-                <img
-                  src={destination.imageUrl}
-                  alt={`Image of ${destination.city}`}
-                  className="destination-image"
-                />
-              </div>
-              <h3 className="destination-name">{destination.city}</h3>
-            </Link>
+            <DestinationCard key={destination.city} destination={destination} />
           ))}
         </div>
         <Divider />
