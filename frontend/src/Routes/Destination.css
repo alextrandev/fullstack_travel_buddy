@@ -9,6 +9,10 @@ h1 {
   margin-bottom: 24px;
 }
 
+.destination h2 {
+  color: #4C956C;
+}
+
 .popular-destinations {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -65,4 +69,57 @@ h1 {
 
 .destination-card p {
   padding: 0 16px 16px;
+}
+
+.hide {
+  position: relative;
+}
+
+.hide img {
+  filter: blur(20px) grayscale(1); /* Adjust the blur radius as needed */
+  transition: filter 0.3s ease-in-out; /* Optional: for smooth transition */
+}
+
+.hide .destination-name::before {
+  content: "?????";
+  visibility: visible;
+  display: block;
+}
+
+.hide .destination-name {
+  visibility: hidden;
+}
+
+.hide::before {
+  content: "?";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px; /* Adjust font size as needed */
+  color: rgba(255, 255, 255, 0.8); /* Adjust color and opacity as needed */
+  z-index: 2;
+  pointer-events: none; /* Ensure the question mark doesn't interfere with clicking */
+}
+
+.show {
+  scale: 1.2;
+}
+
+.show img {
+  filter: none; /* Remove blur and grayscale */
+}
+
+.show .destination-name {
+  visibility: visible;
+}
+
+.show::before {
+  content: "";
+}
+
+.disabled {
+  filter: blur(10px) grayscale(1); /* Apply blur and grayscale to the entire element */
+  pointer-events: none; /* Disable all click interactions */
+  opacity: 0.5; /* Make the element semi-transparent */
 }
