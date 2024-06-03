@@ -5,10 +5,12 @@ import "./CityInfo.css";
 import Divider from "../Components/Divider";
 import CityDescription from "../Components/CityDescription";
 import ItineraryPlanner from "../Components/ItineraryPlanner";
+import WeatherInfo from "../Components/WeatherInfo";
 
 const CityInfo = ({ destinationCoordinates }) => {
   const { cityName } = useParams();
   const [cityData, setCityData] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
   const [attractionCoordinates, setAttractionCoordinates] = useState([]);
 
   const citiesCoordinates = {
@@ -35,6 +37,14 @@ const CityInfo = ({ destinationCoordinates }) => {
   }, [cityName]);
 
   useEffect(() => {
+    // get weather data
+    axios
+      .get(`${import.meta.env.VITE_API_URL}weather/${cityName}`)
+      .then((res) => setWeatherData(res.data))
+      .catch((err) => console.log(err));
+  }, [cityName]);
+
+  useEffect(() => {
     // get this destination attraction coordinates
     axios
       .get(`${import.meta.env.VITE_API_URL}coordinates/${cityName}`)
@@ -49,7 +59,7 @@ const CityInfo = ({ destinationCoordinates }) => {
       <Divider />
       <p> To do: Info about destination </p>
       <Divider />
-      <p> To do: Weather forecast </p>
+      <WeatherInfo weatherData={weatherData} />
       <Divider />
       <ItineraryPlanner
         attractionCoordinates={attractionCoordinates}
