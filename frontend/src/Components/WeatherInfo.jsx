@@ -12,6 +12,7 @@ export default function WeatherInfo({ weatherData }) {
 
   return (
     <div className="weather-container">
+      <h1>Current weather</h1>
       <div className="weather-content">
         {!weatherData
           ? <LoadingImage size={400} text={'Fetching weather data'} />
@@ -28,10 +29,10 @@ export default function WeatherInfo({ weatherData }) {
                   <p>{capitalized(weatherData.weather[0].description)}</p>
                 </div>
                 <div className="extra-info">
-                  <p>Feels like: <span>{roundTemp(weatherData.main.feels_like)}&deg;C</span></p>
-                  <p>High: <span>{roundTemp(weatherData.main.temp_max)}&deg;C</span></p>
-                  <p>Low: <span>{roundTemp(weatherData.main.temp_min)}&deg;C</span></p>
-                  <p>Humidity: <span>{weatherData.main.humidity}</span></p>
+                  <p>Feels like: <b>{roundTemp(weatherData.main.feels_like)}&deg;C</b></p>
+                  <p>High: <b>{roundTemp(weatherData.main.temp_max)}&deg;C</b></p>
+                  <p>Low: <b>{roundTemp(weatherData.main.temp_min)}&deg;C</b></p>
+                  <p>Humidity: <b>{weatherData.main.humidity}</b></p>
                 </div>
               </div>
             </div>
