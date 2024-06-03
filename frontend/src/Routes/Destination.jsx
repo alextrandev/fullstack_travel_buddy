@@ -5,6 +5,7 @@ import SearchResult from "../Components/SearchResult.jsx";
 import Divider from "../Components/Divider.jsx";
 import HeroBanner from "../Components/HeroBanner.jsx";
 import DestinationCard from "../Components/DestinationCard.jsx";
+import RoulleteResult from "../Components/RoulleteResult.jsx";
 
 const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults, coordinates }) => {
   return (
@@ -25,6 +26,7 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
         <div className="search">
           <SearchBar handleSubmit={handleSubmit} />
           {showSearchResults && <SearchResult results={searchResults} />}
+          <RoulleteResult destinations={destinations} />
         </div>
         <Divider />
         <h1>World Map</h1>
