@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SearchBar = ({ handleSubmit }) => {
+const SearchBar = ({ handleSubmit, handleRoullete }) => {
   const [query, setQuery] = useState('');
 
   const handleInputChange = (e) => {
@@ -23,6 +23,7 @@ const SearchBar = ({ handleSubmit }) => {
           placeholder="Search..."
         />
         <button type="submit">Search</button>
+        <button onClick={handleRoullete}>Destination Roullete</button>
       </form>
     </>
   );

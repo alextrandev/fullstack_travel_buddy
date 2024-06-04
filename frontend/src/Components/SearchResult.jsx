@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Image from "./Image";
 
 const SearchResults = ({ results }) => {
   if (results.length == 0) {
@@ -11,10 +12,11 @@ const SearchResults = ({ results }) => {
         {results.map((destination) => (
           <Link key={destination.city} to={`/city/${destination.city}`}>
             <div className="destination-card">
-              <img
-                src={destination.imageUrl}
-                alt={`Image of ${destination.city}`}
+              <Image
+                url={destination.imageUrl}
                 className="destination-image"
+                size={250}
+                text={false}
               />
             </div>
             <h3 className="destination-name">{destination.city}</h3>
