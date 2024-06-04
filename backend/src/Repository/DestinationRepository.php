@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Model\CountryData;
 use App\Model\Destination;
 use App\Model\DestinationData;
 use Psr\Log\LoggerInterface;
@@ -85,6 +86,23 @@ class DestinationRepository
         $destinationCountry = $destinationData["country"];
         $destinationAttractions = $destinationData["attractions"];
         return new DestinationData($destinationName, $destinationCountry, $destinationAttractions, $this->log, $this->client);
+      }
+    }
+
+    $this->log->info("Can't find destination");
+    return null;
+  }
+
+  public function getCountry($queryName): ?CountryData
+  {
+    $this->log->info("Fetching country data...");
+
+    foreach ($this->destinationsDB as $destinationName => $destinationData) {
+      if (strtolower($destinationName) == strtolower($queryName)) {
+        $this->log->info('Destination data found');
+
+        $destinationCountry = $destinationData["country"];
+        return new CountryData($destinationCountry, $this->client);
       }
     }
 
