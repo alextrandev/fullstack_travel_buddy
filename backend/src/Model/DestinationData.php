@@ -12,7 +12,6 @@ class DestinationData
   public string $photoUrl;
   public string $description;
   public string $wikiLink;
-  public array $cityInfo;
   public array $attractions;
 
   public function __construct(string $city, string $country, array $attractions, private LoggerInterface $log, private HttpClientInterface $client)
@@ -30,13 +29,5 @@ class DestinationData
     $wikiContent = $responseFromWiki->toArray();
     $this->description = $wikiContent["extract"];
     $this->wikiLink = $wikiContent["content_urls"]["desktop"]["page"];
-
-    // fetch from Rest Countries
-    $responseFromRestCountries = $this->client->request(
-      'GET',
-      "https://restcountries.com/v3.1/name/$country?fields=name,currencies,subregion,languages,timezones,continents,flag"
-    );
-    $content = $responseFromRestCountries->toArray();
-    $this->cityInfo = $content[0];
   }
 }

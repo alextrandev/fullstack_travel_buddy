@@ -25,4 +25,12 @@ class DestinationsApiController extends AbstractController
         $destinations = $repository->getOne($destination);
         return $this->json($destinations);
     }
+
+    // end point for rest countries info about the destination
+    #[Route('/{destination}/country', name: 'app_destination_country_api', methods: 'GET')]
+    public function getCountry(string $destination, DestinationRepository $repository): Response
+    {
+        $coutryData = $repository->getCountry($destination);
+        return $this->json($coutryData);
+    }
 }

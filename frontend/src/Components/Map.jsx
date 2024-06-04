@@ -1,6 +1,7 @@
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { Link } from "react-router-dom";
 import 'leaflet/dist/leaflet.css';
+import Image from './Image';
 
 export default function Map({ coordinates, centerCoordinates, fullMap }) {
   return (
@@ -25,10 +26,7 @@ export default function Map({ coordinates, centerCoordinates, fullMap }) {
             <Marker key={location.name} position={location.coordinates}>
               <Popup>
                 <div style={{ width: 130, height: 130 }} >
-                  <img
-                    src={`https://source.unsplash.com/130x130/?${location.name}`}
-                    alt={`Photo of ${location.name}`}
-                  />
+                  <Image size={130} url={`https://source.unsplash.com/130x130/?${location.name}`} />
                 </div>
                 <br />
                 <b>{location.name}</b>
