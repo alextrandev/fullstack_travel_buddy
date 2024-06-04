@@ -6,10 +6,12 @@ import Divider from "../Components/Divider";
 import CityDescription from "../Components/CityDescription";
 import ItineraryPlanner from "../Components/ItineraryPlanner";
 import WeatherInfo from "../Components/WeatherInfo";
+import Attractions from "../Components/Attractions";
 
 const CityInfo = ({ destinationCoordinates }) => {
   const { cityName } = useParams();
   const [cityData, setCityData] = useState(null);
+  const [attractions, setAttractions] = useState([]);
   const [weatherData, setWeatherData] = useState(null);
   const [attractionCoordinates, setAttractionCoordinates] = useState([]);
 
@@ -32,8 +34,11 @@ const CityInfo = ({ destinationCoordinates }) => {
     // get this destination data
     axios
       .get(`${import.meta.env.VITE_API_URL}destinations/${cityName}`)
-      .then((res) => setCityData(res.data))
-      .catch((err) => console.log(err));
+      .then(res => {
+        setCityData(res.data);
+        setAttractions(res.data.attractions);
+      })
+      .catch(err => console.log(err));
   }, [cityName]);
 
   useEffect(() => {
@@ -55,7 +60,7 @@ const CityInfo = ({ destinationCoordinates }) => {
     <div className="destination">
       <CityDescription cityData={cityData} />
       <Divider />
-      <p> To do: Destination Attractions </p>
+      <Attractions attractions={attractions} />
       <Divider />
       <p> To do: Info about destination </p>
       <Divider />
