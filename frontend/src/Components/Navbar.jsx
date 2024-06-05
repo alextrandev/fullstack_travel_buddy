@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { debounce } from "../functions/functions";
 import { useEffect, useState } from "react";
+import HamburgerMenu from "./HamburgerMenu";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -28,9 +30,12 @@ const Navbar = () => {
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar-container">
           <Link to="/" className="navbar-logo">
-            ForeMap
+            <div className="logo">
+              <img src={logo} alt="logo-icon" />
+            </div>
+            <p>ForeMap</p>
           </Link>
-          <ul className="nav-menu">
+          <ul className="nav-menu full">
             <li className="nav-item">
               <Link to="/" className="nav-links">
                 Home
@@ -47,6 +52,7 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
+          <HamburgerMenu />
         </div>
       </nav>
     </>
