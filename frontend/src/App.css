@@ -122,6 +122,24 @@ form {
   line-height: 2;
   margin-bottom: 10px;
 }
+
+.itinerary-planner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.itinerary-list {
+  font-size: 1rem;
+  margin: 10px auto 10px auto;
+  flex-direction: row;
+  text-align: center;
+}
+
+.itinerary-attraction {
+  display: flex;
+  flex-direction: column;
+}
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -156,5 +174,63 @@ form {
 .city-description p {
   line-height: 1.8;
   margin-bottom: 10px;
+}
+
+.weather-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: large;
+  gap: 0px;
+  padding: 30px;
+}
+
+.weather-content img {
+  scale: 1.5;
+}
+
+.text-container {
+    gap: 20px;
+}
+
+.text-container p:first-child {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.temperature {
+  font-size: 3.5rem;
+}
+
+.extra-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  width: 100%;
+}
+
+.extra-info p {
+    display: block !important;
+    text-align: center;
+}
+
+.itinerary-list {
+  font-size: 1rem;
+  margin: 10px auto 10px auto;
+  flex-direction: column;
+  text-align: center;
+}
+
+.itinerary-attraction {
+  display: flex;
+  flex-direction: row;
 }
 }
