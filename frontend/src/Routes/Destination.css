@@ -129,30 +129,3 @@ h1 {
   pointer-events: none; /* Disable all click interactions */
   opacity: 0.5; /* Make the element semi-transparent */
 }
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 1024px) {
-  .popular-destinations {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-} 
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 768px) {
-  .popular-destinations {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-  }
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 480px) {
-  .popular-destinations {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 40px;
-  }
-}

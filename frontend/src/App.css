@@ -64,3 +64,97 @@ form {
     gap: 10px;
     justify-content: center;
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 1024px) {
+  .popular-destinations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .city-description {
+  padding: 40px 20px 40px 20px;
+  margin: 0;
+  gap: 0;
+}
+
+.city-info-container h1 {
+  font-size: 2.5rem;
+}
+
+.city-description p {
+  line-height: 1.5;
+}
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  .popular-destinations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .city-description {
+  flex-direction: column;
+  padding: 40px;
+  gap: 10px;
+}
+
+.city-image {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  margin-right: 0px;
+}
+
+.city-info-container {
+  text-align: center;
+}
+
+.city-info-container h1 {
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+.city-description p {
+  line-height: 2;
+  margin-bottom: 10px;
+}
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 480px) {
+  .popular-destinations {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  }
+
+  .city-description {
+  padding: 20px;
+  margin: -16px;
+  border-radius: 0;
+}
+
+.city-image {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.city-info-container h1 {
+  font-size: 2.7rem;
+}
+
+.city-info-container a {
+  margin-bottom: 20px;
+}
+
+
+.city-description p {
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+}

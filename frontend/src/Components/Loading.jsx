@@ -29,7 +29,7 @@ export default function Loading({ type }) {
   if (type == "grid") {
     return (
       <l-grid
-        size="60"
+        size="50"
         speed="1.5"
         color="black"
       ></l-grid>
