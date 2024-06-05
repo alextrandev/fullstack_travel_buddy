@@ -18,8 +18,16 @@
   padding-bottom: 0.5rem;
 }
 
+.navbar.scrolled img {
+  opacity: 50%;
+}
+
 .navbar.scrolled:hover {
   background-color: #4c956c;
+}
+
+.navbar.scrolled:hover img {
+  opacity: 100%;
 }
 
 .navbar-container {
