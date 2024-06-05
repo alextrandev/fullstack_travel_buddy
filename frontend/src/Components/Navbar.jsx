@@ -1,10 +1,31 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { debounce } from "../functions/functions";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 0);
+  };
+
+  const debouncedHandleScroll = debounce(handleScroll, 10);
+
+  useEffect(() => {
+    window.addEventListener("scroll", debouncedHandleScroll);
+    return () => {
+      window.removeEventListener("scroll", debouncedHandleScroll);
+    };
+  }, [debouncedHandleScroll]);
+
+  const scrollTo = id => {
+    document.getElementById(id).scrollIntoView();
+  };
+
   return (
     <>
-      <nav className="navbar">
+      <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar-container">
           <Link to="/" className="navbar-logo">
             ForeMap
@@ -16,12 +37,12 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/map" className="nav-links">
+              <Link to="/#map" onClick={() => scrollTo("map")} className="nav-links">
                 Map
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-links">
+              <Link to="/about" onClick={() => scrollTo("about")} className="nav-links">
                 About
               </Link>
             </li>

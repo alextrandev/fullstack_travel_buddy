@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Jost';
+  overscroll-behavior: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 h1,

@@ -1,6 +1,20 @@
 .navbar {
   background-color: #4c956c;
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: linear-gradient(to bottom, #4c956c80, transparent);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.navbar.scrolled:hover {
+  background-color: #4c956c;
 }
 
 .navbar-container {
@@ -36,5 +50,4 @@
 
 .nav-links:hover {
   color: #d68c45;
-  
 }
