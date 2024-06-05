@@ -4,9 +4,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 100px 80px 100px 80px;
+  padding: 80px 50px 80px 50px;
   border-radius: 20px;
-  margin: 20px;
+  margin: 10px;
   gap: 20px;
 }
 
@@ -23,16 +23,12 @@
   max-width: 600px;
 }
 
-.city-title h1 {
-  margin: 0;
-}
-
 .city-info-container {
   text-align: left;
 }
 
 .city-info-container h1 {
-  font-size: 4rem;
+  font-size: 3.2rem;
   margin: 0;
   text-align: left;
 }

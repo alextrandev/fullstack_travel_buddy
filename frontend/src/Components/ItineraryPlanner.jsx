@@ -17,7 +17,12 @@ export default function ItineraryPlanner({ attractionCoordinates, citiesCoordina
           ? <ul className="itinerary-list">
             {attractionCoordinates.map((attraction, index) =>
               <li key={attraction.name} className="itinerary-attraction">
-                {(index + 1) + ". " + attraction.name + ": " + (Math.floor(Math.random() * 4) + 1) + " hours"}
+                <span>
+                  {(index + 1) + ". " + attraction.name + ":"}&nbsp;
+                </span>
+                <span>
+                  {(Math.floor(Math.random() * 4) + 1) + " hours"}
+                </span>
               </li>
             )}
           </ul>

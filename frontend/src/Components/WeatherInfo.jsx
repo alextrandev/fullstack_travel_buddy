@@ -20,7 +20,7 @@ export default function WeatherInfo({ weatherData }) {
             <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="" />
             <div className="text-container">
               <p>
-                <b>{weatherData.name}</b>&nbsp;
+                <b>{weatherData.name}&nbsp;</b>
                 <span>{dateTimeString}</span>
               </p>
               <div className="weather-info">

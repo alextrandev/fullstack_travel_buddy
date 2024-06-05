@@ -18,7 +18,7 @@ class DestinationData
   {
     $this->city = $city;
     $this->country = $country;
-    $this->photoUrl = "https://source.unsplash.com/400x400/?$city";
+    $this->photoUrl = "https://source.unsplash.com/800x800/?$city";
     $this->attractions = array_map(fn ($attraction) => ["name" => $attraction, "photo" => "https://source.unsplash.com/400x400/?$attraction+$this->country"], $attractions);
 
     // fetch info from wikipedia
