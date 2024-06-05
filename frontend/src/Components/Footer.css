@@ -1,0 +1,47 @@
+.footer {
+  background-color: #4c956c;
+  padding: 20px;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.text {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #fefee3;
+  display: inline;
+  margin-right: 10px;
+}
+
+.link {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #fefee3;
+  text-decoration: none;
+  display: inline;
+}
+
+.link-text {
+  color: #fefee3;
+  text-decoration: underline;
+  gap: 20px;
+  display: inline;
+}
+
+.devicon-github-original {
+  font-size: 14px;
+  color: #fefee3;
+}
