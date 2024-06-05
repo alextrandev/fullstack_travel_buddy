@@ -19,6 +19,12 @@ h1 {
   gap: 40px;
 }
 
+.roulette-grid {
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 50px;
+  padding-bottom: 10px
+}
+
 .destination-card {
   background-color: #fff;
   border-radius: 8px;
@@ -122,4 +128,31 @@ h1 {
   filter: blur(10px) grayscale(1); /* Apply blur and grayscale to the entire element */
   pointer-events: none; /* Disable all click interactions */
   opacity: 0.5; /* Make the element semi-transparent */
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 1024px) {
+  .popular-destinations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  .popular-destinations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 480px) {
+  .popular-destinations {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  }
 }
