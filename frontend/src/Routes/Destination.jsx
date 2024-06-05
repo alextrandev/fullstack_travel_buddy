@@ -14,6 +14,12 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
       <HeroBanner />
       <div className="destination">
         <Divider />
+        <div className="search">
+          <SearchBar handleSubmit={handleSubmit} handleRoullete={handleRoullete} />
+          {showSearchResults && <SearchResult results={searchResults} />}
+          {showRoullete && <RoulleteResult destinations={destinations} />}
+        </div>
+        <Divider />
         <h1>Popular Tourist Destinations</h1>
         <div className="popular-destinations">
           {Array.isArray(destinations) && destinations.length > 0
@@ -25,12 +31,6 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
             ))
             : <LoadingImage size={500} />
           }
-        </div>
-        <Divider />
-        <div className="search">
-          <SearchBar handleSubmit={handleSubmit} handleRoullete={handleRoullete} />
-          {showSearchResults && <SearchResult results={searchResults} />}
-          {showRoullete && <RoulleteResult destinations={destinations} />}
         </div>
         <Divider />
         <h1>World Map</h1>
