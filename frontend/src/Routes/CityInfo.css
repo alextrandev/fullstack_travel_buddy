@@ -1,7 +1,3 @@
-html {
-  scroll-behavior: auto !important;
-}
-
 .city-info {
   display: flex;
   background-color: #ffc9b9;

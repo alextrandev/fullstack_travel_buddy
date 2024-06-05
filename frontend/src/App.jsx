@@ -79,13 +79,13 @@ const App = () => {
               element={
                 <CityInfo />
               }
-               />
-               <Route
-               path="/about"
-               element={
+            />
+            <Route
+              path="/about"
+              element={
                 <About />
-               }
-                />
+              }
+            />
           </Routes>
           <Footer />
         </div>
