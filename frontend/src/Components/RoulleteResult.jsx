@@ -29,14 +29,7 @@ export default function RouletteResult({ destinations }) {
   return (
     <div className="destination">
       <h2>Pick a card to see your mystery destination!</h2>
-      <div
-        className="popular-destinations"
-        style={{
-          gridTemplateColumns: '1fr 1fr 1fr',
-          padding: '70px',
-          paddingTop: '50px',
-          paddingBottom: '10px'
-        }}>
+      <div className="popular-destinations roulette-grid" >
         {rouletteResults.map((destination, index) => (
           <div
             key={destination.city}
@@ -62,6 +55,6 @@ export default function RouletteResult({ destinations }) {
         ))}
       </div>
       {clickedIndex !== null && <h2>The Tarot reader said: You going to {rouletteResults[clickedIndex].city}!</h2>}
-    </div>
+    </div >
   );
 }

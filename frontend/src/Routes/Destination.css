@@ -19,6 +19,12 @@ h1 {
   gap: 40px;
 }
 
+.roulette-grid {
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 50px;
+  padding-bottom: 10px
+}
+
 .destination-card {
   background-color: #fff;
   border-radius: 8px;

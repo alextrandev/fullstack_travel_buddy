@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Destination from "./Routes/Destination.jsx";
 import CityInfo from "./Routes/CityInfo";
+import About from "./Routes/About.jsx";
 import "./App.css";
 import Footer from "./Components/Footer.jsx";
 import axios from "axios";
@@ -73,7 +74,18 @@ const App = () => {
                 />
               }
             />
-            <Route path="/city/:cityName" element={<CityInfo />} />
+            <Route
+              path="/city/:cityName"
+              element={
+                <CityInfo />
+              }
+               />
+               <Route
+               path="/about"
+               element={
+                <About />
+               }
+                />
           </Routes>
           <Footer />
         </div>
