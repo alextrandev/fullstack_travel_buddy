@@ -4,6 +4,7 @@ import Destination from "./Routes/Destination.jsx";
 import CityInfo from "./Routes/CityInfo";
 import About from "./Routes/About.jsx";
 import "./App.css";
+import Footer from "./Components/Footer.jsx";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -20,7 +21,7 @@ const App = () => {
       .get(`${import.meta.env.VITE_API_URL}destinations`)
       .then((res) => setDestinations(res.data))
       .catch((err) => {
-        console.log(err)
+        console.log(err);
       });
 
     // get coordinate data for the map component from backend
@@ -47,11 +48,11 @@ const App = () => {
       .catch((err) => console.log(err));
   };
 
-  const handleRoullete = e => {
+  const handleRoullete = (e) => {
     e.preventDefault();
     setShowSearchResults(false);
     setShowRoullete(true);
-  }
+  };
 
   return (
     <>
@@ -85,8 +86,8 @@ const App = () => {
                 <About />
                }
                 />
-               
           </Routes>
+          <Footer />
         </div>
       </Router>
     </>
