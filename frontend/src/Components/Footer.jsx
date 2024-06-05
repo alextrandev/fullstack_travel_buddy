@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.css";
 
 const Footer = () => {
@@ -7,7 +6,7 @@ const Footer = () => {
       <p className="text">Copyright © FOREMAP</p>
       <a href="https://github.com/alextrandev/fullstack_travel_buddy">
         <p className="link-text">View Github Repo</p>
-        <i class="devicon-github-original"></i>
+        <i className="devicon-github-original"></i>
       </a>
     </footer>
   );
