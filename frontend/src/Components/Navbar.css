@@ -1,6 +1,33 @@
 .navbar {
   background-color: #4c956c;
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.logo img {
+  width: 40px;
+  height: 30px;
+}
+
+.navbar.scrolled {
+  background: linear-gradient(to bottom, #4c956c80, transparent);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.navbar.scrolled img {
+  opacity: 50%;
+}
+
+.navbar.scrolled:hover {
+  background-color: #4c956c;
+}
+
+.navbar.scrolled:hover img {
+  opacity: 100%;
 }
 
 .navbar-container {
@@ -14,6 +41,8 @@
   text-decoration: none;
   font-size: 1.5rem;
   margin-left: 5rem;
+  display: flex;
+  gap: 5px;
 }
 
 .nav-menu {
@@ -36,5 +65,4 @@
 
 .nav-links:hover {
   color: #d68c45;
-  
 }

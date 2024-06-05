@@ -7,6 +7,7 @@ import CityDescription from "../Components/CityDescription";
 import ItineraryPlanner from "../Components/ItineraryPlanner";
 import WeatherInfo from "../Components/WeatherInfo";
 import Attractions from "../Components/Attractions";
+import scrollToTop from "../functions/scrollToTop";
 
 const CityInfo = ({ destinationCoordinates }) => {
   const { cityName } = useParams();
@@ -14,6 +15,8 @@ const CityInfo = ({ destinationCoordinates }) => {
   const [attractions, setAttractions] = useState([]);
   const [weatherData, setWeatherData] = useState(null);
   const [attractionCoordinates, setAttractionCoordinates] = useState([]);
+
+  scrollToTop();
 
   const citiesCoordinates = {
     "Paris": [48.854679, 2.347724],
