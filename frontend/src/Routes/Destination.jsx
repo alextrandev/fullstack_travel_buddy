@@ -16,6 +16,7 @@ const Destination = ({ destinationCoordinates }) => {
   const [attractions, setAttractions] = useState([]);
   const [weatherData, setWeatherData] = useState(null);
   const [attractionCoordinates, setAttractionCoordinates] = useState([]);
+  const [countryInfo, setCountryInfo] = useState(null);
 
   scrollToTop();
 
@@ -64,8 +65,8 @@ const Destination = ({ destinationCoordinates }) => {
   useEffect(() => {
     // get country info
     axios
-      .get(`${import.meta.env.VITE_API_URL}weather/${cityName}`)
-      .then((res) => setWeatherData(res.data))
+      .get(`${import.meta.env.VITE_API_URL}destinations/${cityName}/country`)
+      .then((res) => setCountryInfo(res.data))
       .catch((err) => console.log(err));
   }, [cityName]);
 
@@ -75,7 +76,7 @@ const Destination = ({ destinationCoordinates }) => {
       <Divider />
       <Attractions attractions={attractions} />
       <Divider />
-      <CountryInfo />
+      <CountryInfo countryInfo={countryInfo} cityData={cityData} />
       <Divider />
       <WeatherInfo weatherData={weatherData} />
       <Divider />
