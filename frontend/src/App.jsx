@@ -5,6 +5,7 @@ import CityInfo from "./Routes/CityInfo";
 import About from "./Routes/About.jsx";
 import "./App.css";
 import Footer from "./Components/Footer.jsx";
+import BackToTopButton from "./Components/BackToTopButton.jsx";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -74,20 +75,11 @@ const App = () => {
                 />
               }
             />
-            <Route
-              path="/city/:cityName"
-              element={
-                <CityInfo />
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <About />
-              }
-            />
+            <Route path="/city/:cityName" element={<CityInfo />} />
+            <Route path="/about" element={<About />} />
           </Routes>
           <Footer />
+          <BackToTopButton />
         </div>
       </Router>
     </>
