@@ -16,7 +16,7 @@ const CityDescription = ({ cityData, countryInfo }) => {
               text={false}
             />
             <div className="city-info-container">
-              <h1>{cityData.city} - {cityData.country} {countryInfo.flag ?? <Loading type="grid" />}</h1>
+              <h1>{cityData.city} - {cityData.country} {countryInfo ? countryInfo.flag : <Loading type="grid" />}</h1>
               <p>{cityData.description}</p>
               <a href={cityData.wikiLink} target="blank">
                 <b>Read more about {cityData.city} on Wikipedia &gt;</b>

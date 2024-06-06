@@ -18,7 +18,7 @@ export default function CountryInfo({ countryInfo, cityData }) {
         ? <LoadingImage size={400} text={'Fetching destination infos'} />
         : <ul className="country-info-grid">
           <li><span>Country: </span><b>{countryInfo.country}</b></li>
-          <li><span>Country flag: </span><b>{countryInfo.flag}</b></li>
+          <li><span>Country flag: </span><b className="flag">{countryInfo.flag}</b></li>
           <li><span>Region: </span><b>{countryInfo.subregion}</b></li>
           <li><span>Continents: </span><b>{continents}</b></li>
           <li><span>Currencies: </span><b>{currencies}</b></li>

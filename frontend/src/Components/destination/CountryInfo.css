@@ -5,6 +5,10 @@
   max-width: 1000px;
   margin: auto;
   box-shadow: 0 0 10px #c6c6c6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
 }
 
 .country-info-grid {
@@ -31,4 +35,8 @@
 
 .country-info-grid li a {
   text-decoration: underline;
+}
+
+.flag {
+  font-size: 2rem;
 }
