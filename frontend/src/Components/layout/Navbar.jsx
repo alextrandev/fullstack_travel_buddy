@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { debounce } from "../functions/functions";
+import { debounce } from "../../functions/functions";
 import { useEffect, useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

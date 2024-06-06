@@ -1,5 +1,5 @@
-import Loading from "./Loading"
-import Map from "./Map"
+import Loading from "../utility/Loading"
+import Map from "../utility/Map"
 
 export default function ItineraryPlanner({ attractionCoordinates, citiesCoordinates, cityName }) {
   return (
