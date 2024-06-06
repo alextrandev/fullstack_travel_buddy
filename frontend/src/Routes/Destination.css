@@ -9,8 +9,8 @@ h1 {
   margin-bottom: 24px;
 }
 
-.destination h2 {
-  color: #4C956C;
+.destination h1 {
+  color: #4c956c;
 }
 
 .popular-destinations {
@@ -22,7 +22,7 @@ h1 {
 .roulette-grid {
   grid-template-columns: 1fr 1fr 1fr;
   padding-top: 50px;
-  padding-bottom: 10px
+  padding-bottom: 10px;
 }
 
 .destination-card {
@@ -48,7 +48,6 @@ h1 {
   height: 100%;
   scale: 1.2;
   transition: all 0.5s linear;
-  
 }
 
 .destination-card:hover .destination-image {
@@ -63,10 +62,10 @@ h1 {
   padding-top: 13px;
 }
 
-.destination-card:hover ~.destination-name {
+.destination-card:hover ~ .destination-name {
   scale: 1.02;
   rotate: 2deg;
-  top: 100px
+  top: 100px;
 }
 
 .destination-card h3 {
