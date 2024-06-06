@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const BackToTopButton = () => {
   const [backToTopButton, setBackToTopButton] = useState(false);
 
-  useEffec(() => {
+  useEffect(() => {
     window.addEventListener("Scroll", () => {
       if (window.scrollY > 100) {
         setBackToTopButton(true);
@@ -20,7 +20,7 @@ const BackToTopButton = () => {
       behavior: "smooth",
     });
   };
-  return <div></div>;
+  return <div>{backToTopButton && <button>^</button>}</div>;
 };
 
-export default BackToTop;
+export default BackToTopButton;
