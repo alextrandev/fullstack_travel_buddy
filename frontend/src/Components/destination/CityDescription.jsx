@@ -1,7 +1,7 @@
 import "./CityDescription.css";
-import Image from './Image';
-import LoadingImage from "./LoadingImage";
-import Loading from "./Loading";
+import Image from '../utility/Image';
+import LoadingImage from "../utility/LoadingImage";
+import Loading from "../utility/Loading";
 
 const CityDescription = ({ cityData, flag }) => {
   return (

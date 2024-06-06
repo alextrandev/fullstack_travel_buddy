@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./Destination.css";
+import "./CityInfo.css";
 import Divider from "../Components/layout/Divider";
 import CityDescription from "../Components/destination/CityDescription";
 import ItineraryPlanner from "../Components/destination/ItineraryPlanner";
@@ -10,7 +10,7 @@ import Attractions from "../Components/destination/Attractions";
 import scrollToTop from "../functions/scrollToTop";
 import CountryInfo from "../Components/destination/CountryInfo";
 
-const Destination = ({ destinationCoordinates }) => {
+const CityInfo = ({ destinationCoordinates }) => {
   const { cityName } = useParams();
   const [cityData, setCityData] = useState(null);
   const [attractions, setAttractions] = useState([]);
@@ -89,4 +89,4 @@ const Destination = ({ destinationCoordinates }) => {
   );
 };
 
-export default Destination;
+export default CityInfo;

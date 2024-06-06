@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/layout/Navbar.jsx";
 import About from "./Routes/About.jsx";
 import "./App.css";
-import Footer from "./Components/Footer.jsx";
+import Footer from "./Components/layout/Footer.jsx";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Homepage from "./Routes/Homepage.jsx";

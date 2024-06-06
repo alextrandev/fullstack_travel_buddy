@@ -1,11 +1,11 @@
 import "./Homepage.css";
-import Map from "../Components/Map.jsx";
-import SearchBar from "../Components/SearchBar.jsx";
-import SearchResult from "../Components/SearchResult.jsx";
-import Divider from "../Components/Divider.jsx";
-import HeroBanner from "../Components/HeroBanner.jsx";
-import RoulleteResult from "../Components/RoulleteResult.jsx";
-import DestinationCardGrid from "../Components/DestinationCardGrid.jsx";
+import Map from "../Components/utility/Map.jsx";
+import SearchBar from "../Components/home/SearchBar.jsx";
+import SearchResult from "../Components/home/SearchResult.jsx";
+import Divider from "../Components/layout/Divider.jsx";
+import HeroBanner from "../Components/home/HeroBanner.jsx";
+import RoulleteResult from "../Components/home/RoulleteResult.jsx";
+import DestinationCardGrid from "../Components/home/DestinationCardGrid.jsx";
 
 const Homepage = ({ destinations, handleSubmit, showSearchResults, searchResults, showRoullete, handleRoullete, coordinates }) => {
   return (

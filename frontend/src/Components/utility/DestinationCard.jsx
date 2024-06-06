@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../Routes/Homepage.jsx";
+import "../../Routes/Homepage.jsx";
 import Image from "./Image.jsx";
 
 const DestinationCard = ({ destination, disableLink }) => {

@@ -1,5 +1,5 @@
-import DestinationCard from "./DestinationCard";
-import LoadingImage from "./LoadingImage";
+import DestinationCard from "../utility/DestinationCard";
+import LoadingImage from "../utility/LoadingImage";
 
 export default function DestinationCardGrid({ destinations }) {
   return (
