@@ -27,7 +27,15 @@ const BackToTopButton = () => {
       behavior: "smooth",
     });
   };
-  return <div>{backToTopButton && <button onClick={scrollUp}>^</button>}</div>;
+  return (
+    <div>
+      {backToTopButton && (
+        <button className="back-to-top-button" onClick={scrollUp}>
+          ^
+        </button>
+      )}
+    </div>
+  );
 };
 
 export default BackToTopButton;

@@ -78,8 +78,8 @@ const App = () => {
             <Route path="/city/:cityName" element={<CityInfo />} />
             <Route path="/about" element={<About />} />
           </Routes>
-          <Footer />
           <BackToTopButton />
+          <Footer />
         </div>
       </Router>
     </>
