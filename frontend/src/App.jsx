@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Destination from "./Routes/Destination.jsx";
-import CityInfo from "./Routes/CityInfo";
 import About from "./Routes/About.jsx";
 import "./App.css";
 import Footer from "./Components/Footer.jsx";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Homepage from "./Routes/Homepage.jsx";
+import Destination from "./Routes/Destination.jsx";
 
 const App = () => {
   const [destinations, setDestinations] = useState([]);
@@ -63,7 +63,7 @@ const App = () => {
             <Route
               path="/"
               element={
-                <Destination
+                <Homepage
                   destinations={destinations}
                   handleSubmit={handleSubmit}
                   handleRoullete={handleRoullete}
@@ -77,7 +77,7 @@ const App = () => {
             <Route
               path="/city/:cityName"
               element={
-                <CityInfo />
+                <Destination />
               }
             />
             <Route
