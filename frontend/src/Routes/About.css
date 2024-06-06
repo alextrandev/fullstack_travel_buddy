@@ -9,11 +9,16 @@ body {
 }
 
 .about-section {
-  padding: 50px;
   text-align: center;
   background-color: #FFF;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 20px;
+  min-height: 77vh;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 50px 180px 50px 180px;
 }
 
 
@@ -21,8 +26,8 @@ body {
   font-size: 2.5em;
   color: #4c954c;
   text-transform: uppercase;
-  margin-bottom: 20px;
   font-weight: normal;
+  margin: 0;
 }
 
 

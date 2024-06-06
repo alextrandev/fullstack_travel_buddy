@@ -157,6 +157,11 @@ form button {
 .country-info-grid {
   column-gap: 20px !important;
 }
+
+/* about page */
+.about-section {
+  padding: 30px;
+}
 }
 
 /* Extra small devices (phones, 600px and down) */
