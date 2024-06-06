@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import "./BackToTopButton.css";
 
@@ -28,10 +27,13 @@ const BackToTopButton = () => {
     });
   };
   return (
-    <div>
+    <div className="button-container">
       {backToTopButton && (
         <button className="back-to-top-button" onClick={scrollUp}>
-          ^
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+          <span className="material-symbols-outlined">
+            arrow_upward
+          </span>
         </button>
       )}
     </div>
