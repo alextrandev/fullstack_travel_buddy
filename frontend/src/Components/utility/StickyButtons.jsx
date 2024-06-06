@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import "./BackToTopButton.css";
+import "./StickyButtons.css";
 
-const BackToTopButton = () => {
-  const [backToTopButton, setBackToTopButton] = useState(false);
+const StickyButtons = () => {
+  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
-        setBackToTopButton(true);
+        setShowButton(true);
       } else {
-        setBackToTopButton(false);
+        setShowButton(false);
       }
     };
 
@@ -28,16 +28,23 @@ const BackToTopButton = () => {
   };
   return (
     <div className="button-container">
-      {backToTopButton && (
-        <button className="back-to-top-button" onClick={scrollUp}>
+      {showButton && (
+        <>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-          <span className="material-symbols-outlined">
-            arrow_upward
-          </span>
-        </button>
+          <button className="back-to-top-button" onClick={scrollUp}>
+            <span className="material-symbols-outlined">
+              arrow_upward
+            </span>
+          </button>
+          <button className="share-button">
+            <span className="material-symbols-outlined">
+              share
+            </span>
+          </button>
+        </>
       )}
     </div>
   );
 };
 
-export default BackToTopButton;
+export default StickyButtons;

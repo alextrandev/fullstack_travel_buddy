@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Homepage from "./Routes/Homepage.jsx";
 import Destination from "./Routes/Destination.jsx";
 import Background from "./Components/utility/Background.jsx";
-import BackToTopButton from "./Components/utility/BackToTopButton.jsx";
+import StickyButtons from "./Components/utility/StickyButtons.jsx";
 
 const App = () => {
   const [destinations, setDestinations] = useState([]);
@@ -80,7 +80,7 @@ const App = () => {
             <Route path="/city/:cityName" element={<Destination />} />
             <Route path="/about" element={<About />} />
           </Routes>
-          <BackToTopButton />
+          <StickyButtons />
           <Footer />
         </div>
       </Router>
