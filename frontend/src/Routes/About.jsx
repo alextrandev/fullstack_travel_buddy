@@ -1,5 +1,5 @@
 import './About.css';
-import Divider from "../Components/Divider.jsx";
+import Divider from "../Components/layout/Divider.jsx";
 
 const About = () => {
   return (

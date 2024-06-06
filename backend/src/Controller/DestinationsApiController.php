@@ -31,6 +31,39 @@ class DestinationsApiController extends AbstractController
     public function getCountry(string $destination, DestinationRepository $repository): Response
     {
         $coutryData = $repository->getCountry($destination);
+        // $coutryData = [
+        //     "country" => "France",
+        //     "currencies" => [
+        //         "EUR" => [
+        //             "name" => "Euro",
+        //             "symbol" => "€"
+        //         ]
+        //     ],
+        //     "subregion" => "Western Europe",
+        //     "languages" => [
+        //         "fra" => "French"
+        //     ],
+        //     "flag" => "🇫🇷",
+        //     "timezones" => [
+        //         "UTC-10:00",
+        //         "UTC-09:30",
+        //         "UTC-09:00",
+        //         "UTC-08:00",
+        //         "UTC-04:00",
+        //         "UTC-03:00",
+        //         "UTC+01:00",
+        //         "UTC+02:00",
+        //         "UTC+03:00",
+        //         "UTC+04:00",
+        //         "UTC+05:00",
+        //         "UTC+10:00",
+        //         "UTC+11:00",
+        //         "UTC+12:00"
+        //     ],
+        //     "continents" => [
+        //         "Europe"
+        //     ]
+        // ];
         return $this->json($coutryData);
     }
 }

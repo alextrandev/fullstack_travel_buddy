@@ -1,6 +1,6 @@
-import LoadingImage from "./LoadingImage";
+import LoadingImage from "../utility/LoadingImage";
 import './WeatherInfo.css';
-import { roundTemp, capitalized } from "../functions/functions";
+import { roundTemp, capitalized } from "../../functions/functions";
 
 export default function WeatherInfo({ weatherData }) {
   let dateTimeString;

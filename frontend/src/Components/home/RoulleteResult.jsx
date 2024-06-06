@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import LoadingImage from "./LoadingImage";
-import './WeatherInfo.css';
-import Image from './Image';
+import LoadingImage from "../utility/LoadingImage";
+import Image from '../utility/Image';
 
 export default function RouletteResult({ destinations }) {
   const [clickedIndex, setClickedIndex] = useState(null);

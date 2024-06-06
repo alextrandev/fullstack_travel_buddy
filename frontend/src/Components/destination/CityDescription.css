@@ -5,9 +5,10 @@
   align-items: center;
   justify-content: center;
   padding: 80px 50px 80px 50px;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 10px;
   gap: 20px;
+  box-shadow: 0 0 10px #c6c6c6;
 }
 
 .city-image {

@@ -1,13 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import Destination from "./Routes/Destination.jsx";
-import CityInfo from "./Routes/CityInfo";
+import Navbar from "./Components/layout/Navbar.jsx";
 import About from "./Routes/About.jsx";
 import "./App.css";
-import Footer from "./Components/Footer.jsx";
-import BackToTopButton from "./Components/BackToTopButton.jsx";
+import Footer from "./Components/layout/Footer.jsx";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Homepage from "./Routes/Homepage.jsx";
+import Destination from "./Routes/Destination.jsx";
+import Background from "./Components/utility/Background.jsx";
+import BackToTopButton from "./Components/utility/BackToTopButton.jsx";
 
 const App = () => {
   const [destinations, setDestinations] = useState([]);
@@ -59,12 +60,13 @@ const App = () => {
     <>
       <Router>
         <div className="App">
+          <Background />
           <Navbar />
           <Routes>
             <Route
               path="/"
               element={
-                <Destination
+                <Homepage
                   destinations={destinations}
                   handleSubmit={handleSubmit}
                   handleRoullete={handleRoullete}
@@ -75,7 +77,7 @@ const App = () => {
                 />
               }
             />
-            <Route path="/city/:cityName" element={<CityInfo />} />
+            <Route path="/city/:cityName" element={<Destination />} />
             <Route path="/about" element={<About />} />
           </Routes>
           <BackToTopButton />
