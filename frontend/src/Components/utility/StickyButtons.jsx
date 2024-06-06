@@ -3,6 +3,7 @@ import "./StickyButtons.css";
 
 const StickyButtons = () => {
   const [showButton, setShowButton] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,24 +27,36 @@ const StickyButtons = () => {
       behavior: "smooth",
     });
   };
+
+  const copyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false)
+    }, 3000)
+  }
+
   return (
-    <div className="button-container">
-      {showButton && (
-        <>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-          <button className="back-to-top-button" onClick={scrollUp}>
-            <span className="material-symbols-outlined">
-              arrow_upward
-            </span>
-          </button>
-          <button className="share-button">
-            <span className="material-symbols-outlined">
-              share
-            </span>
-          </button>
-        </>
-      )}
-    </div>
+    <>
+      <div className="button-container">
+        {showButton && (
+          <>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+            <button className="back-to-top-button" onClick={scrollUp}>
+              <span className="material-symbols-outlined">
+                arrow_upward
+              </span>
+            </button>
+            <button className="share-button" onClick={copyLink}>
+              <span className="material-symbols-outlined">
+                share
+              </span>
+            </button>
+          </>
+        )}
+      </div>
+      {showPopup && <div className="share-button-popup"><p>Copied!</p></div>}
+    </>
   );
 };
 
