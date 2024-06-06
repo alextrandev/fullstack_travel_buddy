@@ -72,7 +72,7 @@ const Destination = ({ destinationCoordinates }) => {
 
   return (
     <div className="destination">
-      <CityDescription cityData={cityData} />
+      <CityDescription cityData={cityData} countryInfo={countryInfo} />
       <Divider />
       <Attractions attractions={attractions} />
       <Divider />

@@ -3,7 +3,7 @@ import Image from '../utility/Image';
 import LoadingImage from "../utility/LoadingImage";
 import Loading from "../utility/Loading";
 
-const CityDescription = ({ cityData, flag }) => {
+const CityDescription = ({ cityData, countryInfo }) => {
   return (
     <div className="city-description">
       {
@@ -16,7 +16,7 @@ const CityDescription = ({ cityData, flag }) => {
               text={false}
             />
             <div className="city-info-container">
-              <h1>{cityData.city} - {cityData.country} {flag ?? <Loading type="grid" />}</h1>
+              <h1>{cityData.city} - {cityData.country} {countryInfo.flag ?? <Loading type="grid" />}</h1>
               <p>{cityData.description}</p>
               <a href={cityData.wikiLink} target="blank">
                 <b>Read more about {cityData.city} on Wikipedia &gt;</b>
