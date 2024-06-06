@@ -7,6 +7,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Homepage from "./Routes/Homepage.jsx";
 import Destination from "./Routes/Destination.jsx";
+import Background from "./Components/utility/Background.jsx";
 
 const App = () => {
   const [destinations, setDestinations] = useState([]);
@@ -58,6 +59,7 @@ const App = () => {
     <>
       <Router>
         <div className="App">
+          <Background />
           <Navbar />
           <Routes>
             <Route
