@@ -13,6 +13,13 @@ const BackToTopButton = () => {
       }
     });
   });
+
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return <div></div>;
 };
 
