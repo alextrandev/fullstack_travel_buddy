@@ -149,6 +149,10 @@ form {
   flex-direction: column;
 }
 
+.itinerary-map {
+    padding-left: 0;
+}
+
 /* hero banner */
 .hero-banner {
     height: 50vh;

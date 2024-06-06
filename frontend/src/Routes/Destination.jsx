@@ -4,9 +4,8 @@ import SearchBar from "../Components/SearchBar.jsx";
 import SearchResult from "../Components/SearchResult.jsx";
 import Divider from "../Components/Divider.jsx";
 import HeroBanner from "../Components/HeroBanner.jsx";
-import DestinationCard from "../Components/DestinationCard.jsx";
 import RoulleteResult from "../Components/RoulleteResult.jsx";
-import LoadingImage from "../Components/LoadingImage.jsx";
+import DestinationCardGrid from "../Components/DestinationCardGrid.jsx";
 
 const Destination = ({ destinations, handleSubmit, showSearchResults, searchResults, showRoullete, handleRoullete, coordinates }) => {
   return (
@@ -21,17 +20,7 @@ const Destination = ({ destinations, handleSubmit, showSearchResults, searchResu
         </div>
         <Divider />
         <h1>Popular Tourist Destinations</h1>
-        <div className="popular-destinations">
-          {Array.isArray(destinations) && destinations.length > 0
-            ? destinations.map((destination) => (
-              <DestinationCard
-                key={destination.city}
-                destination={destination}
-              />
-            ))
-            : <LoadingImage size={500} />
-          }
-        </div>
+        <DestinationCardGrid destinations={destinations} />
         <Divider />
         <h1 id="map">World Map</h1>
         <div className="map">

@@ -8,6 +8,7 @@ import ItineraryPlanner from "../Components/ItineraryPlanner";
 import WeatherInfo from "../Components/WeatherInfo";
 import Attractions from "../Components/Attractions";
 import scrollToTop from "../functions/scrollToTop";
+import CountryInfo from "../Components/CountryInfo";
 
 const CityInfo = ({ destinationCoordinates }) => {
   const { cityName } = useParams();
@@ -59,13 +60,22 @@ const CityInfo = ({ destinationCoordinates }) => {
       .then((res) => setAttractionCoordinates(res.data))
       .catch((err) => console.log(err));
   }, [cityName, destinationCoordinates]);
+
+  useEffect(() => {
+    // get country info
+    axios
+      .get(`${import.meta.env.VITE_API_URL}weather/${cityName}`)
+      .then((res) => setWeatherData(res.data))
+      .catch((err) => console.log(err));
+  }, [cityName]);
+
   return (
     <div className="destination">
       <CityDescription cityData={cityData} />
       <Divider />
       <Attractions attractions={attractions} />
       <Divider />
-      <p> To do: Info about destination </p>
+      <CountryInfo />
       <Divider />
       <WeatherInfo weatherData={weatherData} />
       <Divider />
