@@ -6,8 +6,7 @@ class Destination
 {
   public function __construct(
     private string $city,
-  ) {
-  }
+  ) {}
 
   public function getCity(): string
   {
@@ -16,6 +15,6 @@ class Destination
 
   public function getImageUrl(): string
   {
-    return "https://source.unsplash.com/400x400/?$this->city";
+    return "https://picsum.photos/400/400?$this->city";
   }
 }

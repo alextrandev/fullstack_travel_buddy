@@ -10,6 +10,6 @@ class Destination
   public function __construct($city)
   {
     $this->city = $city;
-    $this->imageUrl = "https://source.unsplash.com/400x400/?$city";
+    $this->imageUrl = "https://picsum.photos/400/400?$city";
   }
 }
